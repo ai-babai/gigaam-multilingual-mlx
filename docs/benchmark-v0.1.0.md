@@ -69,7 +69,7 @@ Peak RSS means peak resident memory of the process, not model-only memory. Metal
 - Quality manifests: [`../benchmarks/manifests/`](../benchmarks/manifests/)
 - Performance recipe: [`../benchmarks/public-asr-perf-v1.json`](../benchmarks/public-asr-perf-v1.json)
 - Methodology: [`../benchmarks/README.md`](../benchmarks/README.md)
-- Code revision: `pending-v0.1.0-release-commit`
+- Code revision: `cb1e886fec747ab3a5c331f402f3bb52073bd9a4`
 - Upstream model: [`ai-sage/GigaAM-Multilingual`](https://huggingface.co/ai-sage/GigaAM-Multilingual)
 - Upstream repository: [`salute-developers/GigaAM`](https://github.com/salute-developers/GigaAM)
 
