@@ -130,6 +130,25 @@ decoding. The release report publishes Original PyTorch/MPS, FP16, INT8, INT6,
 and INT4 side by side, including WER/CER, load/cold/warm timing, RTF, peak resident
 memory, MLX memory, and swap. It contains no private/user audio.
 
+### Results at a glance
+
+Apple M4 Pro (48 GB), macOS 15.7.7. WER columns are FLEURS / Russian
+LibriSpeech / SOVA corpus WER. Runtime is the warm median for the same public
+5-minute input; download time is excluded. Lower is better except speedup.
+
+| Implementation | Weights | WER: FLEURS / RuLibri / SOVA | Load | 5-min warm | Speed vs Original | Peak RSS |
+|---|---:|---:|---:|---:|---:|---:|
+| Original PyTorch/MPS | 2.342 GB | 6.271% / 5.911% / 12.448% | 6.066s | 3.023s | 1.00× | 5.019 GB |
+| MLX FP16 | 1.171 GB | 6.271% / 5.929% / 12.431% | 0.947s | 2.089s | 1.45× | 1.348 GB |
+| **MLX INT8 g64 (default)** | **0.699 GB** | **6.292% / 5.911% / 12.481%** | **0.578s** | **2.332s** | **1.30×** | **0.879 GB** |
+| MLX INT6 g64 | 0.573 GB | 6.249% / 6.022% / 12.465% | 0.478s | 3.142s | 0.96× | 0.755 GB |
+| MLX INT4 g64 | 0.447 GB | 6.358% / 6.003% / 12.581% | 0.378s | 2.750s | 1.10× | 0.628 GB |
+
+INT8 is the default for its measured quality, size, and memory balance. FP16 is
+the fastest measured variant on the representative 5-minute input; quantization
+does not guarantee a speedup for every duration. Peak RSS is whole-process
+resident memory, not model-only or additional GPU memory.
+
 See [`benchmarks/README.md`](benchmarks/README.md) for the reproducible public-only
 methodology and [`docs/benchmark-v0.1.0.md`](docs/benchmark-v0.1.0.md) for release
 results.
