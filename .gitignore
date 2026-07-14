@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+coverage.xml
+.coverage
+.DS_Store
+
+# Heavy ML data and local reports never belong in the code repository.
+weights/
+datasets/
+cache/
+runs/
+reports/raw/
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.mp4
+*.mov
+*.safetensors
+*.bin

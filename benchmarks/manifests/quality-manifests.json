@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "dataset_id": "google/fleurs",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 255,
+      "audio_seconds": 2718.96,
+      "manifest": "google--fleurs.jsonl",
+      "manifest_sha256": "0cba3d5bf4a7f54b12d6655e2acd0e542394ef28c6a96afb8259d6478b0e657e",
+      "licenses": [
+        "CC BY 4.0"
+      ]
+    },
+    {
+      "dataset_id": "istupakov/russian_librispeech",
+      "source_revision": "a519c986bb3342cc8136d3d14e5ad8a4f1e1a2bd",
+      "items": 467,
+      "audio_seconds": 2712.24,
+      "manifest": "istupakov--russian_librispeech.jsonl",
+      "manifest_sha256": "8f7fd44b389aff43e311f40a0e23628c0c45065ff3c6c40e3f4dab4b5800833f",
+      "licenses": [
+        "CC BY 4.0 (HF conversion); upstream OpenSLR SLR96 public domain in the USA"
+      ]
+    },
+    {
+      "dataset_id": "bond005/sova_rudevices",
+      "source_revision": "d9197eacfb0afff29d90a2d4e7d0d98a5dfb54bc",
+      "items": 811,
+      "audio_seconds": 2703.867437,
+      "manifest": "bond005--sova_rudevices.jsonl",
+      "manifest_sha256": "e744739cc2c541bd8046f91aaf2ecd437a81b92def2bc9fc6d56b0bc3d69f827",
+      "licenses": [
+        "CC BY 4.0"
+      ]
+    }
+  ]
+}

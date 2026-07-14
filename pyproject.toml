@@ -1,0 +1,87 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gigaam-mlx"
+dynamic = ["version"]
+description = "Independent native MLX port of GigaAM-Multilingual for Apple Silicon"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Maksim Popkov" }]
+maintainers = [{ name = "Maksim Popkov" }]
+keywords = [
+  "automatic-speech-recognition",
+  "gigaam",
+  "mlx",
+  "apple-silicon",
+  "russian",
+  "speech-to-text",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Operating System :: MacOS :: MacOS X",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "huggingface-hub>=0.34,<2",
+  "mlx>=0.32,<0.33",
+  "numpy>=2.3,<3",
+  "psutil>=7,<8",
+]
+
+[project.urls]
+Homepage = "https://github.com/ai-babai/gigaam-multilingual-mlx"
+Repository = "https://github.com/ai-babai/gigaam-multilingual-mlx"
+Documentation = "https://github.com/ai-babai/gigaam-multilingual-mlx#readme"
+Issues = "https://github.com/ai-babai/gigaam-multilingual-mlx/issues"
+Changelog = "https://github.com/ai-babai/gigaam-multilingual-mlx/blob/main/CHANGELOG.md"
+"Upstream Repository" = "https://github.com/salute-developers/GigaAM"
+"Upstream Model" = "https://huggingface.co/ai-sage/GigaAM-Multilingual"
+"Model Collection" = "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx"
+
+[project.optional-dependencies]
+convert = [
+  "hydra-core>=1.3,<2",
+  "omegaconf>=2.3,<3",
+  "sentencepiece>=0.2,<0.3",
+  "soundfile>=0.13,<0.14",
+  "torch>=2.10,<2.11",
+  "torchaudio>=2.10,<2.11",
+  "transformers>=5.1,<6",
+]
+quality = [
+  "jiwer>=4,<5",
+  "pyarrow>=20,<21",
+]
+dev = [
+  "build>=1.3,<2",
+  "pytest>=8.4,<9",
+  "ruff>=0.12,<1",
+  "twine>=6.1,<7",
+]
+
+[project.scripts]
+gigaam-mlx = "gigaam_mlx.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gigaam_mlx"]
+
+[tool.hatch.version]
+path = "src/gigaam_mlx/_version.py"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

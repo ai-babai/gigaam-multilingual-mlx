@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this MLX port, cite both this software and the original GigaAM-Multilingual work."
+title: "GigaAM-Multilingual MLX"
+type: software
+authors:
+  - family-names: Popkov
+    given-names: Maksim
+version: 0.1.0
+date-released: 2026-07-15
+license: MIT
+repository-code: "https://github.com/ai-babai/gigaam-multilingual-mlx"
+url: "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx"
+keywords:
+  - automatic speech recognition
+  - Apple Silicon
+  - GigaAM
+  - MLX
+preferred-citation:
+  type: article
+  title: "GigaAM Multilingual: Foundation Model for Underrepresented Languages"
+  authors:
+    - family-names: Kuzmenko
+      given-names: Andrei
+    - family-names: Maximenko
+      given-names: Alexandr
+    - family-names: Kutsakov
+      given-names: Aleksandr
+    - family-names: Gospodinov
+      given-names: Georgii
+    - family-names: Bolotov
+      given-names: Dmitrii
+    - family-names: Kutuzov
+      given-names: Oleg
+    - family-names: Bogomolov
+      given-names: Pavel
+    - family-names: Minkin
+      given-names: Fyodor
+  year: 2026
+  identifiers:
+    - type: arxiv
+      value: "2607.10371"
+  url: "https://arxiv.org/abs/2607.10371"
