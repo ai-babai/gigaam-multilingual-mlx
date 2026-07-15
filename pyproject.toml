@@ -57,15 +57,15 @@ convert = [
   "soundfile>=0.13,<0.14",
   "torch>=2.10,<2.11",
   "torchaudio>=2.10,<2.11",
-  "transformers>=5.1,<6",
+  "transformers>=5.5.0,<6",
 ]
 quality = [
   "jiwer>=4,<5",
-  "pyarrow>=20,<21",
+  "pyarrow>=23.0.1,<24",
 ]
 dev = [
   "build>=1.3,<2",
-  "pytest>=8.4,<9",
+  "pytest>=9.0.3,<10",
   "ruff>=0.12,<1",
   "twine>=6.1,<7",
 ]
