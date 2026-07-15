@@ -29,12 +29,12 @@ tag. Later runs reuse the cached files.
 
 ## Model variants
 
-| Variant | Role | Weight file | Hugging Face repository |
+| Variant | Role | Model size | Hugging Face repository |
 |---|---|---:|---|
-| INT8 g64 | default, lowest-risk quantized | 698,960,933 B | [`ai-babai/gigaam-multilingual-mlx-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
-| FP16 | reference MLX artifact | 1,170,775,344 B | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
-| INT6 g64 | compact balanced | 573,131,675 B | [`ai-babai/gigaam-multilingual-mlx-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
-| INT4 g64 | smallest opt-in | 447,302,415 B | [`ai-babai/gigaam-multilingual-mlx-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
+| INT8 g64 | default, lowest-risk quantized | 699 MB | [`ai-babai/gigaam-multilingual-mlx-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
+| FP16 | reference MLX artifact | 1.17 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
+| INT6 g64 | compact balanced | 573 MB | [`ai-babai/gigaam-multilingual-mlx-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
+| INT4 g64 | smallest opt-in | 447 MB | [`ai-babai/gigaam-multilingual-mlx-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
 
 All variants are grouped in the
 [GigaAM Multilingual MLX Collection](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276).

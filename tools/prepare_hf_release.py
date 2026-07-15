@@ -62,6 +62,12 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _format_size(size_bytes: int) -> str:
+    if size_bytes >= 1_000_000_000:
+        return f"{size_bytes / 1_000_000_000:.2f} GB"
+    return f"{size_bytes / 1_000_000:.0f} MB"
+
+
 def _write_json(path: Path, value: dict[str, Any]) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
 
@@ -218,7 +224,8 @@ def _card(
         "",
         f"- Hub revision: `{RELEASE_REVISION}`",
         f"- Source revision: `{UPSTREAM_REVISION}`",
-        f"- Weights: `{manifest['weights']['file']}` — {manifest['weights']['bytes']:,} bytes",
+        f"- Model size: `{manifest['weights']['file']}` — "
+        f"{_format_size(manifest['weights']['bytes'])}",
         f"- Weights SHA-256: `{manifest['weights']['sha256']}`",
         f"- Config SHA-256: `{manifest['config']['sha256']}`",
         "- Runtime compatibility: `gigaam-multilingual-mlx>=0.1.0,<0.2.0`, `mlx>=0.32,<0.33`",
