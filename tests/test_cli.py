@@ -12,6 +12,7 @@ from gigaam_multilingual_mlx.cli import (
     _output_path,
     _parser,
     _selected_format,
+    _short_cli_args,
 )
 
 
@@ -26,7 +27,21 @@ def test_public_cli_exposes_only_user_commands() -> None:
 
 
 def test_version_is_release_version() -> None:
-    assert __version__ == "0.1.0"
+    assert __version__ == "0.1.1"
+
+
+def test_short_cli_accepts_audio_without_transcribe_subcommand() -> None:
+    parser = _parser("gigaam-stt")
+    args = parser.parse_args(_short_cli_args(["meeting.m4a", "--variant", "int6"]))
+    assert args.command == "transcribe"
+    assert args.audio == "meeting.m4a"
+    assert args.variant == "int6"
+    assert "gigaam-stt AUDIO" in parser.format_help()
+
+
+def test_short_cli_keeps_explicit_commands() -> None:
+    assert _short_cli_args(["models", "--json"]) == ["models", "--json"]
+    assert _short_cli_args(["transcribe", "meeting.wav"]) == ["transcribe", "meeting.wav"]
 
 
 def test_models_json_marks_int8_default() -> None:

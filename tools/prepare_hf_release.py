@@ -204,13 +204,13 @@ def _card(
         "",
         "```bash",
         "brew install uv ffmpeg",
-        "uv tool install gigaam-multilingual-mlx==0.1.0",
-        f"gigaam-multilingual-mlx transcribe audio.wav --variant {variant} --format json --output transcript.json",
+        "uv tool install gigaam-multilingual-mlx==0.1.1",
+        f"gigaam-stt audio.wav --variant {variant} --format json --output transcript.json",
         "```",
         "",
         "For the Python API inside a uv-managed project, run "
-        "`uv add gigaam-multilingual-mlx==0.1.0`. A regular "
-        "`python -m pip install gigaam-multilingual-mlx==0.1.0` remains supported.",
+        "`uv add gigaam-multilingual-mlx==0.1.1`. A regular "
+        "`python -m pip install gigaam-multilingual-mlx==0.1.1` remains supported.",
         "",
         "The package downloads the pinned `v0.1.0` snapshot into the standard Hugging Face "
         "cache. Input may be WAV, FLAC, MP3, M4A, or a video readable by `ffmpeg`; output may "

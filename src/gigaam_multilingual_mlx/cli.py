@@ -187,10 +187,16 @@ def transcribe_file(
     }
 
 
-def _parser() -> argparse.ArgumentParser:
+def _parser(prog: str | None = None) -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="gigaam-multilingual-mlx",
+        prog=prog,
         description="Transcribe audio locally with GigaAM-Multilingual on Apple Silicon.",
+        epilog=(
+            "Short form: gigaam-stt AUDIO [OPTIONS] is equivalent to "
+            "gigaam-stt transcribe AUDIO [OPTIONS]."
+            if prog == "gigaam-stt"
+            else None
+        ),
     )
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -261,9 +267,23 @@ def _models_output(as_json: bool) -> str:
     return "\n".join(lines) + "\n"
 
 
-def main() -> None:
-    parser = _parser()
-    args = parser.parse_args()
+def _short_cli_args(argv: list[str]) -> list[str]:
+    if argv and argv[0] not in {"transcribe", "models"} and not argv[0].startswith("-"):
+        return ["transcribe", *argv]
+    return argv
+
+
+def _run(
+    argv: list[str] | None = None,
+    *,
+    prog: str | None = None,
+    implicit_transcribe: bool = False,
+) -> None:
+    parser = _parser(prog)
+    values = list(sys.argv[1:] if argv is None else argv)
+    if implicit_transcribe:
+        values = _short_cli_args(values)
+    args = parser.parse_args(values)
     try:
         if args.command == "models":
             print(_models_output(args.json), end="")
@@ -304,7 +324,15 @@ def main() -> None:
             output_path.write_text(rendered)
             print(f"Wrote {output_format.upper()} to {output_path}", file=sys.stderr)
     except (FileNotFoundError, RuntimeError, ValueError) as error:
-        parser.exit(2, f"gigaam-multilingual-mlx: error: {error}\n")
+        parser.exit(2, f"{parser.prog}: error: {error}\n")
+
+
+def main() -> None:
+    _run()
+
+
+def short_main() -> None:
+    _run(prog="gigaam-stt", implicit_transcribe=True)
 
 
 if __name__ == "__main__":

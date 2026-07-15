@@ -7,7 +7,7 @@ This project is not an official release of the GigaAM authors.
 
 [PyPI package](https://pypi.org/project/gigaam-multilingual-mlx/) ·
 [Model Collection](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276) ·
-[v0.1.0 release](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.0)
+[latest release](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/latest)
 
 `gigaam-multilingual-mlx` runs local multilingual speech recognition without PyTorch, ONNX
 Runtime, Core ML, or a cloud ASR service. Model weights are downloaded separately
@@ -22,12 +22,14 @@ Requirements: an Apple Silicon Mac, macOS 14 or newer, Python 3.12 or 3.13,
 ```bash
 brew install uv ffmpeg
 uv tool install gigaam-multilingual-mlx
-gigaam-multilingual-mlx transcribe meeting.m4a --output transcript.txt
+gigaam-stt meeting.m4a --output transcript.txt
 ```
 
 For the Python API inside a uv-managed project, use
 `uv add gigaam-multilingual-mlx`. A regular
 `python -m pip install gigaam-multilingual-mlx` remains supported.
+The canonical `gigaam-multilingual-mlx transcribe ...` command and the explicit
+`gigaam-stt transcribe ...` form remain available for compatibility.
 
 The first run downloads the default INT8 model at the immutable `v0.1.0` release
 tag. Later runs reuse the cached files.
@@ -49,9 +51,9 @@ not part of the public project name.
 Select another variant without knowing its repository name:
 
 ```bash
-gigaam-multilingual-mlx transcribe speech.wav --variant fp16
-gigaam-multilingual-mlx transcribe speech.wav --variant int6 --format json
-gigaam-multilingual-mlx models
+gigaam-stt speech.wav --variant fp16
+gigaam-stt speech.wav --variant int6 --format json
+gigaam-stt models
 ```
 
 ## Inputs and outputs
@@ -61,13 +63,13 @@ video containers. Inputs are converted to mono 16 kHz PCM before inference.
 
 ```bash
 # Write next to an explicit path
-gigaam-multilingual-mlx transcribe interview.mp3 --format srt --output interview.srt
+gigaam-stt interview.mp3 --format srt --output interview.srt
 
 # Generate OUTPUT_DIR/INPUT_STEM.vtt
-gigaam-multilingual-mlx transcribe recording.mov --format vtt --output-dir transcripts/
+gigaam-stt recording.mov --format vtt --output-dir transcripts/
 
 # Machine-readable output with text, word timestamps, model revision, and metrics
-gigaam-multilingual-mlx transcribe sample.flac --format json --output sample.json
+gigaam-stt sample.flac --format json --output sample.json
 ```
 
 Supported output formats are `txt`, `json`, `srt`, and `vtt`. CTC word timestamps
@@ -84,10 +86,10 @@ Use the normal Hub variables such as `HF_HOME` to move that cache, or pass an
 explicit directory:
 
 ```bash
-gigaam-multilingual-mlx transcribe audio.wav --cache-dir /Volumes/ML/huggingface
-gigaam-multilingual-mlx transcribe audio.wav --offline
-gigaam-multilingual-mlx transcribe audio.wav --model /path/to/portable/model
-gigaam-multilingual-mlx transcribe audio.wav \
+gigaam-stt audio.wav --cache-dir /Volumes/ML/huggingface
+gigaam-stt audio.wav --offline
+gigaam-stt audio.wav --model /path/to/portable/model
+gigaam-stt audio.wav \
   --model ai-babai/gigaam-multilingual-mlx-int8-g64 \
   --revision v0.1.0
 ```
