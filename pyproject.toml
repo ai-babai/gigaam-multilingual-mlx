@@ -47,7 +47,7 @@ Issues = "https://github.com/ai-babai/gigaam-multilingual-mlx/issues"
 Changelog = "https://github.com/ai-babai/gigaam-multilingual-mlx/blob/main/CHANGELOG.md"
 "Upstream Repository" = "https://github.com/salute-developers/GigaAM"
 "Upstream Model" = "https://huggingface.co/ai-sage/GigaAM-Multilingual"
-"Model Collection" = "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx"
+"Model Collection" = "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276"
 
 [project.optional-dependencies]
 convert = [

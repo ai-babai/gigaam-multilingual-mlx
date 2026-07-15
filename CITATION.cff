@@ -9,7 +9,7 @@ version: 0.1.0
 date-released: 2026-07-15
 license: MIT
 repository-code: "https://github.com/ai-babai/gigaam-multilingual-mlx"
-url: "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx"
+url: "https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276"
 keywords:
   - automatic speech recognition
   - Apple Silicon

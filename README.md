@@ -33,7 +33,7 @@ tag. Later runs reuse the cached files.
 | INT4 g64 | smallest opt-in | 447,302,415 B | [`ai-babai/gigaam-multilingual-mlx-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
 
 All variants are grouped in the
-[GigaAM Multilingual MLX Collection](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx).
+[GigaAM Multilingual MLX Collection](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276).
 The technical upstream branch name `large_ctc` remains artifact metadata; it is
 not part of the public project name.
 
