@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 
-from gigaam_mlx.outputs import render_transcription
+from gigaam_multilingual_mlx.outputs import render_transcription
 
 
 RESULT = {

@@ -118,7 +118,7 @@ def convert_checkpoint(source: str | Path, output: str | Path, dtype: str = "flo
         converted_path,
         converted,
         metadata={
-            "format": "gigaam-mlx",
+            "format": "gigaam-multilingual-mlx",
             "source_revision": revision,
             "dtype": dtype,
         },
@@ -127,8 +127,8 @@ def convert_checkpoint(source: str | Path, output: str | Path, dtype: str = "flo
     manifest = {
         "schema_version": 1,
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "converter": {"package": "gigaam-mlx", "version": "0.1.0"},
-        "runtime": {"package": "gigaam-mlx", "requires": ">=0.1,<0.2"},
+        "converter": {"package": "gigaam-multilingual-mlx", "version": "0.1.0"},
+        "runtime": {"package": "gigaam-multilingual-mlx", "requires": ">=0.1,<0.2"},
         "architecture": "gigaam_multilingual_ctc_conv1d_rotary_conformer",
         "model_name": config.model_name,
         "dtype": dtype,

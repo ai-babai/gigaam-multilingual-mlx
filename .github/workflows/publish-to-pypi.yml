@@ -24,7 +24,7 @@ jobs:
 
       - name: Verify release tag matches package version
         run: |
-          PACKAGE_VERSION=$(python -c 'import runpy; print(runpy.run_path("src/gigaam_mlx/_version.py")["__version__"])')
+          PACKAGE_VERSION=$(python -c 'import runpy; print(runpy.run_path("src/gigaam_multilingual_mlx/_version.py")["__version__"])')
           test "$GITHUB_REF_NAME" = "v$PACKAGE_VERSION"
 
       - name: Build and validate distributions
@@ -46,7 +46,7 @@ jobs:
     runs-on: macos-14
     environment:
       name: pypi
-      url: https://pypi.org/project/gigaam-mlx/
+      url: https://pypi.org/project/gigaam-multilingual-mlx/
     permissions:
       contents: read
       id-token: write

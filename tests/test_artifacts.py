@@ -5,13 +5,13 @@ from pathlib import Path
 
 import pytest
 
-from gigaam_mlx.artifacts import (
+from gigaam_multilingual_mlx.artifacts import (
     DEFAULT_VARIANT,
     VARIANTS,
     resolve_model_source,
     validate_artifact_dir,
 )
-from gigaam_mlx.config import sha256_file
+from gigaam_multilingual_mlx.config import sha256_file
 
 
 def _artifact(tmp_path: Path, *, absolute_parent: bool = False) -> Path:

@@ -14,8 +14,8 @@ from typing import Any
 
 import mlx.core as mx
 
-from gigaam_mlx.artifacts import validate_artifact_dir
-from gigaam_mlx.model import load_model
+from gigaam_multilingual_mlx.artifacts import validate_artifact_dir
+from gigaam_multilingual_mlx.model import load_model
 
 
 VARIANTS = {
@@ -50,7 +50,7 @@ UPSTREAM_MODEL = "https://huggingface.co/ai-sage/GigaAM-Multilingual"
 UPSTREAM_REVISION = "3905cd51c3ed4e88c8edf33f3302969ba480a327"
 RELEASE_REVISION = "v0.1.0"
 GITHUB = "https://github.com/ai-babai/gigaam-multilingual-mlx"
-PYPI = "https://pypi.org/project/gigaam-mlx/"
+PYPI = "https://pypi.org/project/gigaam-multilingual-mlx/"
 REPORT = f"{GITHUB}/blob/{RELEASE_REVISION}/docs/benchmark-v0.1.0.md"
 
 
@@ -88,7 +88,7 @@ def _portable_manifest(
         "role": metadata["role"],
     }
     result["compatibility"] = {
-        "package": "gigaam-mlx",
+        "package": "gigaam-multilingual-mlx",
         "package_version": ">=0.1.0,<0.2.0",
         "python": ">=3.12,<3.14",
         "mlx": ">=0.32,<0.33",
@@ -150,7 +150,7 @@ def _card(
     quantization = manifest.get("quantization")
     precision = quantization["profile"] if quantization else "float16"
     default_note = (
-        "This is the default variant used by `gigaam-mlx`."
+        "This is the default variant used by `gigaam-multilingual-mlx`."
         if variant == "int8"
         else "Select this variant explicitly with `--variant`."
     )
@@ -166,7 +166,7 @@ def _card(
         "- kk",
         "- ky",
         "- uz",
-        "library_name: gigaam-mlx",
+        "library_name: gigaam-multilingual-mlx",
         "pipeline_tag: automatic-speech-recognition",
         "inference: false",
         f"base_model: {base_model}{relation}",
@@ -184,7 +184,7 @@ def _card(
         f"This repository contains the **{precision}** {metadata['role']}. {default_note}",
         "",
         "- Code and CLI: " + f"[{GITHUB}]({GITHUB})",
-        "- PyPI package: " + f"[`gigaam-mlx`]({PYPI})",
+        "- PyPI package: " + f"[`gigaam-multilingual-mlx`]({PYPI})",
         "- All variants: " + f"[GigaAM Multilingual MLX Collection]({collection_url})",
         "- Full reproducible benchmark: " + f"[v0.1.0 report]({REPORT})",
         "",
@@ -193,8 +193,8 @@ def _card(
         "Requires macOS 14 or newer on Apple Silicon and Python 3.12 or 3.13.",
         "",
         "```bash",
-        "python -m pip install gigaam-mlx==0.1.0",
-        f"gigaam-mlx transcribe audio.wav --variant {variant} --format json --output transcript.json",
+        "python -m pip install gigaam-multilingual-mlx==0.1.0",
+        f"gigaam-multilingual-mlx transcribe audio.wav --variant {variant} --format json --output transcript.json",
         "```",
         "",
         "The package downloads the pinned `v0.1.0` snapshot into the standard Hugging Face "
@@ -202,8 +202,8 @@ def _card(
         "be TXT, JSON, SRT, or VTT.",
         "",
         "```python",
-        "from gigaam_mlx import load_model",
-        "from gigaam_mlx.cli import transcribe_file",
+        "from gigaam_multilingual_mlx import load_model",
+        "from gigaam_multilingual_mlx.cli import transcribe_file",
         "",
         f'model = load_model(variant="{variant}")',
         'result = transcribe_file(model, "audio.wav")',
@@ -217,7 +217,7 @@ def _card(
         f"- Weights: `{manifest['weights']['file']}` — {manifest['weights']['bytes']:,} bytes",
         f"- Weights SHA-256: `{manifest['weights']['sha256']}`",
         f"- Config SHA-256: `{manifest['config']['sha256']}`",
-        "- Runtime compatibility: `gigaam-mlx>=0.1.0,<0.2.0`, `mlx>=0.32,<0.33`",
+        "- Runtime compatibility: `gigaam-multilingual-mlx>=0.1.0,<0.2.0`, `mlx>=0.32,<0.33`",
         "",
         "`manifest.json` records source and parent revisions, hashes, conversion metadata, "
         "quantization rules, strict-load validation, and compatibility without machine-local paths.",

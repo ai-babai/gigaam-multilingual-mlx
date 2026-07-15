@@ -220,7 +220,7 @@ def benchmark_pytorch(
         "overlap_seconds": overlap_seconds,
         "environment": {
             "python": platform.python_version(),
-            "gigaam_mlx": importlib.metadata.version("gigaam-mlx"),
+            "gigaam_multilingual_mlx": importlib.metadata.version("gigaam-multilingual-mlx"),
             "torch": importlib.metadata.version("torch"),
             "platform": platform.platform(),
             "device": device,

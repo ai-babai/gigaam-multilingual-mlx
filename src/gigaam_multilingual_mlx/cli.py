@@ -29,10 +29,10 @@ from .outputs import OUTPUT_FORMATS, render_transcription
 def _ensure_supported_platform() -> None:
     machine = platform.machine().lower()
     if sys.platform != "darwin" or machine not in {"arm64", "aarch64"}:
-        raise RuntimeError("gigaam-mlx requires macOS on Apple Silicon (arm64)")
+        raise RuntimeError("gigaam-multilingual-mlx requires macOS on Apple Silicon (arm64)")
     version = platform.mac_ver()[0]
     if version and int(version.split(".", 1)[0]) < 14:
-        raise RuntimeError("gigaam-mlx requires macOS 14 or newer")
+        raise RuntimeError("gigaam-multilingual-mlx requires macOS 14 or newer")
 
 
 def _word_timestamps(
@@ -189,7 +189,7 @@ def transcribe_file(
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="gigaam-mlx",
+        prog="gigaam-multilingual-mlx",
         description="Transcribe audio locally with GigaAM-Multilingual on Apple Silicon.",
     )
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -304,7 +304,7 @@ def main() -> None:
             output_path.write_text(rendered)
             print(f"Wrote {output_format.upper()} to {output_path}", file=sys.stderr)
     except (FileNotFoundError, RuntimeError, ValueError) as error:
-        parser.exit(2, f"gigaam-mlx: error: {error}\n")
+        parser.exit(2, f"gigaam-multilingual-mlx: error: {error}\n")
 
 
 if __name__ == "__main__":

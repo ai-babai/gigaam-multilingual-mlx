@@ -108,7 +108,7 @@ def quantize_artifact(source_dir: str | Path, output_dir: str | Path, profile: s
         weights_path,
         arrays,
         metadata={
-            "format": "gigaam-mlx",
+            "format": "gigaam-multilingual-mlx",
             "source_revision": source_manifest["source"]["revision"],
             "dtype": "float16",
             "quantization_profile": profile,
@@ -117,8 +117,8 @@ def quantize_artifact(source_dir: str | Path, output_dir: str | Path, profile: s
     manifest = {
         "schema_version": 1,
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "converter": {"package": "gigaam-mlx", "version": "0.1.0"},
-        "runtime": {"package": "gigaam-mlx", "requires": ">=0.1,<0.2"},
+        "converter": {"package": "gigaam-multilingual-mlx", "version": "0.1.0"},
+        "runtime": {"package": "gigaam-multilingual-mlx", "requires": ">=0.1,<0.2"},
         "architecture": source_manifest["architecture"],
         "model_name": source_manifest["model_name"],
         "dtype": "float16",

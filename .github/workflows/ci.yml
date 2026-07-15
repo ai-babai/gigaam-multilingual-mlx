@@ -47,6 +47,6 @@ jobs:
         run: |
           python -m venv "$RUNNER_TEMP/wheel-smoke"
           "$RUNNER_TEMP/wheel-smoke/bin/python" -m pip install dist/*.whl
-          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-mlx" --version
-          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-mlx" --help
-          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-mlx" models --json
+          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-multilingual-mlx" --version
+          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-multilingual-mlx" --help
+          "$RUNNER_TEMP/wheel-smoke/bin/gigaam-multilingual-mlx" models --json

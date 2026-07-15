@@ -15,9 +15,9 @@ pytest
 ruff check .
 ```
 
-The production `gigaam-mlx` CLI contains user inference commands only. Conversion,
+The production `gigaam-multilingual-mlx` CLI contains user inference commands only. Conversion,
 quantization, evaluation, parity, and benchmark work belongs in
-`python -m gigaam_mlx.dev_cli` and must use lazy optional imports.
+`python -m gigaam_multilingual_mlx.dev_cli` and must use lazy optional imports.
 
 ## Pull requests
 

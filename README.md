@@ -5,7 +5,7 @@ An independent native [MLX](https://github.com/ml-explore/mlx) port of
 official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multilingual).
 This project is not an official release of the GigaAM authors.
 
-`gigaam-mlx` runs local multilingual speech recognition without PyTorch, ONNX
+`gigaam-multilingual-mlx` runs local multilingual speech recognition without PyTorch, ONNX
 Runtime, Core ML, or a cloud ASR service. Model weights are downloaded separately
 from Hugging Face and reused from the standard Hub cache.
 
@@ -16,8 +16,8 @@ Requirements: an Apple Silicon Mac, macOS 14 or newer, Python 3.12 or 3.13, and
 
 ```bash
 brew install ffmpeg
-python -m pip install gigaam-mlx
-gigaam-mlx transcribe meeting.m4a --output transcript.txt
+python -m pip install gigaam-multilingual-mlx
+gigaam-multilingual-mlx transcribe meeting.m4a --output transcript.txt
 ```
 
 The first run downloads the default INT8 model at the immutable `v0.1.0` release
@@ -40,9 +40,9 @@ not part of the public project name.
 Select another variant without knowing its repository name:
 
 ```bash
-gigaam-mlx transcribe speech.wav --variant fp16
-gigaam-mlx transcribe speech.wav --variant int6 --format json
-gigaam-mlx models
+gigaam-multilingual-mlx transcribe speech.wav --variant fp16
+gigaam-multilingual-mlx transcribe speech.wav --variant int6 --format json
+gigaam-multilingual-mlx models
 ```
 
 ## Inputs and outputs
@@ -52,13 +52,13 @@ video containers. Inputs are converted to mono 16 kHz PCM before inference.
 
 ```bash
 # Write next to an explicit path
-gigaam-mlx transcribe interview.mp3 --format srt --output interview.srt
+gigaam-multilingual-mlx transcribe interview.mp3 --format srt --output interview.srt
 
 # Generate OUTPUT_DIR/INPUT_STEM.vtt
-gigaam-mlx transcribe recording.mov --format vtt --output-dir transcripts/
+gigaam-multilingual-mlx transcribe recording.mov --format vtt --output-dir transcripts/
 
 # Machine-readable output with text, word timestamps, model revision, and metrics
-gigaam-mlx transcribe sample.flac --format json --output sample.json
+gigaam-multilingual-mlx transcribe sample.flac --format json --output sample.json
 ```
 
 Supported output formats are `txt`, `json`, `srt`, and `vtt`. CTC word timestamps
@@ -75,10 +75,10 @@ Use the normal Hub variables such as `HF_HOME` to move that cache, or pass an
 explicit directory:
 
 ```bash
-gigaam-mlx transcribe audio.wav --cache-dir /Volumes/ML/huggingface
-gigaam-mlx transcribe audio.wav --offline
-gigaam-mlx transcribe audio.wav --model /path/to/portable/model
-gigaam-mlx transcribe audio.wav \
+gigaam-multilingual-mlx transcribe audio.wav --cache-dir /Volumes/ML/huggingface
+gigaam-multilingual-mlx transcribe audio.wav --offline
+gigaam-multilingual-mlx transcribe audio.wav --model /path/to/portable/model
+gigaam-multilingual-mlx transcribe audio.wav \
   --model ai-babai/gigaam-multilingual-mlx-int8-g64 \
   --revision v0.1.0
 ```
@@ -95,7 +95,7 @@ function:
 
 ```python
 import mlx.core as mx
-from gigaam_mlx import load_model
+from gigaam_multilingual_mlx import load_model
 
 model = load_model(variant="int8")  # downloads/reuses ai-babai/...-int8-g64@v0.1.0
 audio = mx.zeros((1, 16_000), dtype=mx.float32)
@@ -169,8 +169,8 @@ Conversion, quantization, parity, quality evaluation, and benchmark commands are
 kept out of the production CLI and use optional dependencies:
 
 ```bash
-python -m pip install 'gigaam-mlx[convert,quality]'
-python -m gigaam_mlx.dev_cli --help
+python -m pip install 'gigaam-multilingual-mlx[convert,quality]'
+python -m gigaam_multilingual_mlx.dev_cli --help
 ```
 
 Weights, datasets, generated audio, and raw benchmark outputs must stay outside the

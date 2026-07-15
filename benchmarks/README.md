@@ -16,7 +16,7 @@ audio SHA-256, references, durations, licenses, and selection rules. They delibe
 exclude local paths and audio bytes.
 
 All implementations use greedy CTC decoding, identical audio bytes, batch size 8,
-and normalization rule `gigaam-mlx-text-v1`:
+and normalization rule `gigaam-multilingual-mlx-text-v1`:
 
 1. Unicode text is lowercased.
 2. `ё` is mapped to `е`.
@@ -59,9 +59,9 @@ published report.
 ```bash
 python tools/export_quality_manifests.py --help
 python tools/build_public_perf_corpus.py --help
-python -m gigaam_mlx.dev_cli evaluate --help
-python -m gigaam_mlx.dev_cli benchmark --help
-python -m gigaam_mlx.dev_cli benchmark-pytorch --help
+python -m gigaam_multilingual_mlx.dev_cli evaluate --help
+python -m gigaam_multilingual_mlx.dev_cli benchmark --help
+python -m gigaam_multilingual_mlx.dev_cli benchmark-pytorch --help
 ```
 
 Raw hypotheses and generated audio remain outside the repository. The compact final

@@ -1,7 +1,7 @@
 """Developer-only conversion, validation, and benchmark commands.
 
-Install the matching optional extras and run with ``python -m gigaam_mlx.dev_cli``.
-These commands are intentionally not exposed by the production ``gigaam-mlx`` CLI.
+Install the matching optional extras and run with ``python -m gigaam_multilingual_mlx.dev_cli``.
+These commands are intentionally not exposed by the production ``gigaam-multilingual-mlx`` CLI.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ def _implementation_id(manifest: dict) -> str:
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="python -m gigaam_mlx.dev_cli")
+    parser = argparse.ArgumentParser(prog="python -m gigaam_multilingual_mlx.dev_cli")
     sub = parser.add_subparsers(dest="command", required=True)
 
     convert = sub.add_parser("convert")
@@ -177,7 +177,7 @@ def _benchmark(args: argparse.Namespace) -> dict:
         "overlap_seconds": args.overlap_seconds,
         "environment": {
             "python": platform.python_version(),
-            "gigaam_mlx": importlib.metadata.version("gigaam-mlx"),
+            "gigaam_multilingual_mlx": importlib.metadata.version("gigaam-multilingual-mlx"),
             "mlx": importlib.metadata.version("mlx"),
             "platform": platform.platform(),
             "device": mx.device_info(),

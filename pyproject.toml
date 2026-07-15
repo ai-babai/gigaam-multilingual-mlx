@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "gigaam-mlx"
+name = "gigaam-multilingual-mlx"
 dynamic = ["version"]
 description = "Independent native MLX port of GigaAM-Multilingual for Apple Silicon"
 readme = "README.md"
@@ -71,13 +71,13 @@ dev = [
 ]
 
 [project.scripts]
-gigaam-mlx = "gigaam_mlx.cli:main"
+gigaam-multilingual-mlx = "gigaam_multilingual_mlx.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/gigaam_mlx"]
+packages = ["src/gigaam_multilingual_mlx"]
 
 [tool.hatch.version]
-path = "src/gigaam_mlx/_version.py"
+path = "src/gigaam_multilingual_mlx/_version.py"
 
 [tool.ruff]
 line-length = 100

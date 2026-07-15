@@ -3,7 +3,7 @@ from __future__ import annotations
 import unicodedata
 
 
-NORMALIZATION_VERSION = "gigaam-mlx-text-v1"
+NORMALIZATION_VERSION = "gigaam-multilingual-mlx-text-v1"
 
 
 def normalize_text(text: str) -> str:

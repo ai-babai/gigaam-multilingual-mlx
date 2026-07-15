@@ -4,7 +4,7 @@
   "benchmark_suite_version": {
     "quality": "public-asr-quality-v1",
     "performance": "public-asr-perf-v1",
-    "normalization": "gigaam-mlx-text-v1"
+    "normalization": "gigaam-multilingual-mlx-text-v1"
   },
   "code_revision": "cb1e886fec747ab3a5c331f402f3bb52073bd9a4",
   "environment": {
@@ -14,7 +14,7 @@
     "power_state": "AC Power",
     "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
     "python": "3.13.2",
-    "gigaam_mlx": "0.1.0",
+    "gigaam_multilingual_mlx": "0.1.0",
     "mlx": "0.32.0",
     "torch": "2.10.0",
     "mlx_device": {
@@ -1544,28 +1544,28 @@
   "commands": [
     {
       "implementation": "original",
-      "quality": "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --source <UPSTREAM_SNAPSHOT> --source-device mps --batch-size 8 --output <RAW_REPORT>",
-      "performance": "python -m gigaam_mlx.dev_cli benchmark-pytorch <PUBLIC_PROFILE_WAV> --source <UPSTREAM_SNAPSHOT> --source-device mps --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
+      "quality": "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --source <UPSTREAM_SNAPSHOT> --source-device mps --batch-size 8 --output <RAW_REPORT>",
+      "performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark-pytorch <PUBLIC_PROFILE_WAV> --source <UPSTREAM_SNAPSHOT> --source-device mps --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
     },
     {
       "implementation": "fp16",
-      "quality": "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
-      "performance": "python -m gigaam_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
+      "quality": "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
+      "performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
     },
     {
       "implementation": "int8",
-      "quality": "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
-      "performance": "python -m gigaam_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
+      "quality": "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
+      "performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
     },
     {
       "implementation": "int6",
-      "quality": "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
-      "performance": "python -m gigaam_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
+      "quality": "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
+      "performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
     },
     {
       "implementation": "int4",
-      "quality": "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
-      "performance": "python -m gigaam_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
+      "quality": "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> --model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>",
+      "performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> --model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 --overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> --output <RAW_REPORT>"
     }
   ],
   "quality_results": [

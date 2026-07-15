@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from gigaam_mlx.audio import SAMPLE_RATE, fixed_chunks
+from gigaam_multilingual_mlx.audio import SAMPLE_RATE, fixed_chunks
 
 
 def test_fixed_chunks_cover_audio_with_deterministic_overlap() -> None:

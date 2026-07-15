@@ -100,7 +100,10 @@ def _quality_rows(root: Path) -> list[dict[str, Any]]:
         for implementation in IMPLEMENTATIONS:
             report = reports[implementation, dataset]
             summary = report["summary"]
-            if report["normalization_version"] != "gigaam-mlx-text-v1":
+            if report["normalization_version"] not in {
+                "gigaam-multilingual-mlx-text-v1",
+                "gigaam-mlx-text-v1",  # pre-release report identifier
+            }:
                 raise ValueError(f"Unexpected normalization for {implementation}/{dataset}")
             if [item["id"] for item in report["items"]] != original_ids:
                 raise ValueError(f"Item mismatch for {implementation}/{dataset}")
@@ -230,23 +233,23 @@ def _commands() -> list[dict[str, str]]:
     for implementation in IMPLEMENTATIONS:
         if implementation == "original":
             quality = (
-                "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> "
+                "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> "
                 "--source <UPSTREAM_SNAPSHOT> --source-device mps --batch-size 8 "
                 "--output <RAW_REPORT>"
             )
             performance = (
-                "python -m gigaam_mlx.dev_cli benchmark-pytorch <PUBLIC_PROFILE_WAV> "
+                "python -m gigaam_multilingual_mlx.dev_cli benchmark-pytorch <PUBLIC_PROFILE_WAV> "
                 "--source <UPSTREAM_SNAPSHOT> --source-device mps --chunk-seconds 20 "
                 "--overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> "
                 "--output <RAW_REPORT>"
             )
         else:
             quality = (
-                "python -m gigaam_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> "
+                "python -m gigaam_multilingual_mlx.dev_cli evaluate --manifest <DATASET_MANIFEST> "
                 "--model <LOCAL_RELEASE_ARTIFACT> --batch-size 8 --output <RAW_REPORT>"
             )
             performance = (
-                "python -m gigaam_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> "
+                "python -m gigaam_multilingual_mlx.dev_cli benchmark <PUBLIC_PROFILE_WAV> "
                 "--model <LOCAL_RELEASE_ARTIFACT> --compile --chunk-seconds 20 "
                 "--overlap-seconds 2 --warm-runs <5_SHORT_MEDIUM_OR_3_LONG> "
                 "--output <RAW_REPORT>"
@@ -299,7 +302,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         "benchmark_suite_version": {
             "quality": "public-asr-quality-v1",
             "performance": recipe["benchmark_suite_version"],
-            "normalization": "gigaam-mlx-text-v1",
+            "normalization": "gigaam-multilingual-mlx-text-v1",
         },
         "code_revision": args.code_revision,
         "environment": {
@@ -309,7 +312,10 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "power_state": args.power_state,
             "platform": sample["environment"]["platform"],
             "python": sample["environment"]["python"],
-            "gigaam_mlx": sample["environment"]["gigaam_mlx"],
+            "gigaam_multilingual_mlx": sample["environment"].get(
+                "gigaam_multilingual_mlx",
+                sample["environment"].get("gigaam_mlx"),  # pre-release report field
+            ),
             "mlx": sample["environment"]["mlx"],
             "torch": original_sample["environment"]["torch"],
             "mlx_device": sample["environment"]["device"],
@@ -415,7 +421,7 @@ def markdown(report: dict[str, Any]) -> str:
             "",
             "## Quality: `public-asr-quality-v1`",
             "",
-            "WER/CER are corpus metrics after `gigaam-mlx-text-v1` normalization. All rows use "
+            "WER/CER are corpus metrics after `gigaam-multilingual-mlx-text-v1` normalization. All rows use "
             "the same 1,533 public items and batch size 8.",
             "",
             *_quality_table(report),

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from gigaam_mlx import __version__
-from gigaam_mlx.cli import (
+from gigaam_multilingual_mlx import __version__
+from gigaam_multilingual_mlx.cli import (
     _ensure_supported_platform,
     _models_output,
     _output_path,

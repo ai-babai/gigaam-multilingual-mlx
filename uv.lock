@@ -224,7 +224,7 @@ wheels = [
 ]
 
 [[package]]
-name = "gigaam-mlx"
+name = "gigaam-multilingual-mlx"
 source = { editable = "." }
 dependencies = [
     { name = "huggingface-hub" },

@@ -16,7 +16,7 @@ The four published MLX model artifacts total 2.890 GB. INT8 g64 is the default b
 
 ## Quality: `public-asr-quality-v1`
 
-WER/CER are corpus metrics after `gigaam-mlx-text-v1` normalization. All rows use the same 1,533 public items and batch size 8.
+WER/CER are corpus metrics after `gigaam-multilingual-mlx-text-v1` normalization. All rows use the same 1,533 public items and batch size 8.
 
 | Implementation | FLEURS WER/CER | Russian LibriSpeech WER/CER | SOVA WER/CER | Max abs. Δ WER vs Original | Max abs. Δ WER vs FP16 |
 |---|---:|---:|---:|---:|---:|
