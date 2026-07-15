@@ -203,9 +203,14 @@ def _card(
         "Requires macOS 14 or newer on Apple Silicon and Python 3.12 or 3.13.",
         "",
         "```bash",
-        "python -m pip install gigaam-multilingual-mlx==0.1.0",
+        "brew install uv ffmpeg",
+        "uv tool install gigaam-multilingual-mlx==0.1.0",
         f"gigaam-multilingual-mlx transcribe audio.wav --variant {variant} --format json --output transcript.json",
         "```",
+        "",
+        "For the Python API inside a uv-managed project, run "
+        "`uv add gigaam-multilingual-mlx==0.1.0`. A regular "
+        "`python -m pip install gigaam-multilingual-mlx==0.1.0` remains supported.",
         "",
         "The package downloads the pinned `v0.1.0` snapshot into the standard Hugging Face "
         "cache. Input may be WAV, FLAC, MP3, M4A, or a video readable by `ffmpeg`; output may "

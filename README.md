@@ -15,14 +15,19 @@ from Hugging Face and reused from the standard Hub cache.
 
 ## Install and transcribe in 60 seconds
 
-Requirements: an Apple Silicon Mac, macOS 14 or newer, Python 3.12 or 3.13, and
+Requirements: an Apple Silicon Mac, macOS 14 or newer, Python 3.12 or 3.13,
+[`uv`](https://docs.astral.sh/uv/getting-started/installation/), and
 [`ffmpeg`](https://ffmpeg.org/).
 
 ```bash
-brew install ffmpeg
-python -m pip install gigaam-multilingual-mlx
+brew install uv ffmpeg
+uv tool install gigaam-multilingual-mlx
 gigaam-multilingual-mlx transcribe meeting.m4a --output transcript.txt
 ```
+
+For the Python API inside a uv-managed project, use
+`uv add gigaam-multilingual-mlx`. A regular
+`python -m pip install gigaam-multilingual-mlx` remains supported.
 
 The first run downloads the default INT8 model at the immutable `v0.1.0` release
 tag. Later runs reuse the cached files.
