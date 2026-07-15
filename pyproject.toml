@@ -57,7 +57,7 @@ convert = [
   "soundfile>=0.13,<0.14",
   "torch>=2.10,<2.11",
   "torchaudio>=2.10,<2.11",
-  "transformers>=5.1,<6",
+  "transformers>=5.5.0,<6",
 ]
 quality = [
   "jiwer>=4,<5",
