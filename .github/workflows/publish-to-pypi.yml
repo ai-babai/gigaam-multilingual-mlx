@@ -43,7 +43,8 @@ jobs:
 
   publish:
     needs: build
-    runs-on: macos-14
+    # The official PyPI Trusted Publishing action is a Linux container action.
+    runs-on: ubuntu-latest
     environment:
       name: pypi
       url: https://pypi.org/project/gigaam-multilingual-mlx/
