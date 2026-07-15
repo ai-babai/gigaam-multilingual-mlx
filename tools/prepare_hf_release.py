@@ -76,6 +76,10 @@ def _portable_manifest(
     result = {
         key: value for key, value in source.items() if key not in {"parent_artifact", "environment"}
     }
+    result["converter"] = {
+        **source.get("converter", {}),
+        "package": "gigaam-multilingual-mlx",
+    }
     result["source"] = {
         **source["source"],
         "repository": "ai-sage/GigaAM-Multilingual",
