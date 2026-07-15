@@ -3,42 +3,29 @@ name: Publish to PyPI
 on:
   release:
     types: [published]
-  workflow_dispatch:
-    inputs:
-      release_tag:
-        description: Existing published version tag to recover
-        required: true
-        type: string
-
-env:
-  RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
 
 permissions:
   contents: read
 
 jobs:
   build:
-    if: startsWith(github.event.release.tag_name || inputs.release_tag, 'v')
+    if: startsWith(github.event.release.tag_name, 'v')
     runs-on: macos-14
     steps:
       - name: Check out release tag
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          ref: ${{ env.RELEASE_TAG }}
+          ref: ${{ github.event.release.tag_name }}
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.13"
 
-      - name: Verify published release tag matches package version
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Verify release tag matches package version
         run: |
           PACKAGE_VERSION=$(python -c 'import runpy; print(runpy.run_path("src/gigaam_multilingual_mlx/_version.py")["__version__"])')
-          test "$RELEASE_TAG" = "v$PACKAGE_VERSION"
-          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" --jq .draft)" = "false"
-          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" --jq .prerelease)" = "false"
+          test "$GITHUB_REF_NAME" = "v$PACKAGE_VERSION"
 
       - name: Build and validate distributions
         run: |
