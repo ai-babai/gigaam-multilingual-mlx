@@ -5,6 +5,10 @@ An independent native [MLX](https://github.com/ml-explore/mlx) port of
 official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multilingual).
 This project is not an official release of the GigaAM authors.
 
+[PyPI package](https://pypi.org/project/gigaam-multilingual-mlx/) ·
+[Model Collection](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276) ·
+[v0.1.0 release](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.0)
+
 `gigaam-multilingual-mlx` runs local multilingual speech recognition without PyTorch, ONNX
 Runtime, Core ML, or a cloud ASR service. Model weights are downloaded separately
 from Hugging Face and reused from the standard Hub cache.
