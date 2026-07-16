@@ -3,6 +3,15 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-07-16
+
+### Changed
+
+- Reworked the English and Russian landing documentation around a compact,
+  mobile-friendly benchmark graphic near the top.
+- Removed duplicate full benchmark tables from the README while retaining one
+  accessible text summary and links to the reproducible report.
+
 ## [0.1.2] - 2026-07-16
 
 ### Added
@@ -41,6 +50,7 @@ and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Local model, explicit Hub repository/revision, and offline workflows.
 - Developer-only conversion, parity, quality, and benchmark interfaces.
 
+[0.1.3]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.3
 [0.1.2]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.2
 [0.1.1]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.1
 [0.1.0]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.0
