@@ -3,6 +3,14 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2026-07-17
+
+### Changed
+
+- Removed the stray transparent corner pixels from the benchmark image and
+  refreshed its URL across GitHub, PyPI, and Hugging Face to avoid stale CDN
+  copies.
+
 ## [0.1.4] - 2026-07-17
 
 ### Changed
@@ -61,6 +69,7 @@ and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Local model, explicit Hub repository/revision, and offline workflows.
 - Developer-only conversion, parity, quality, and benchmark interfaces.
 
+[0.1.5]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.5
 [0.1.4]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.4
 [0.1.3]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.3
 [0.1.2]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.2

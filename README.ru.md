@@ -13,7 +13,7 @@
 [Последний релиз](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/latest) ·
 [Полный бенчмарк](docs/benchmark-multilingual-v1.md)
 
-![Сравнение GigaAM MLX, Whisper и Parakeet](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png)
+![Сравнение GigaAM MLX, Whisper и Parakeet](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png?v=0.1.5)
 
 На графике сравниваются WER, время расшифровки пятиминутного WAV, пиковая память
 процесса и размер модели. Залитые плашки обозначают лидеров столбцов, контурные —

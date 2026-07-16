@@ -12,7 +12,7 @@ official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multi
 [Latest release](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/latest) ·
 [Full benchmark](docs/benchmark-multilingual-v1.md)
 
-![GigaAM MLX, Whisper, and Parakeet model decision matrix](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png)
+![GigaAM MLX, Whisper, and Parakeet model decision matrix](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png?v=0.1.5)
 
 The chart compares WER, five-minute transcription time, peak process memory, and
 model size. Filled pills mark column leaders, outlined pills mark runners-up,
