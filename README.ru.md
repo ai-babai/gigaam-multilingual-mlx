@@ -41,19 +41,25 @@ uv add gigaam-multilingual-mlx
 Также поддерживаются `pip install gigaam-multilingual-mlx` и полная команда
 `gigaam-multilingual-mlx transcribe ...`.
 
-## Локальный OpenAI-совместимый сервер
+## Локальный сервер транскрипции
 
-Установите web-зависимости и запустите INT8-модель по умолчанию:
+GigaAM MLX можно подключить к приложениям, которые поддерживают OpenAI
+Transcriptions API:
 
 ```bash
 uv tool install 'gigaam-multilingual-mlx[server]'
 gigaam-stt serve
 ```
 
-Существующие OpenAI-клиенты могут использовать локальный `base_url`.
-Имя `whisper-1` — только alias для совместимости; `/v1/models` показывает
-реальный артефакт GigaAM MLX. Для Python-примера отдельно установите клиент:
-`uv add openai`.
+После запуска API доступен по адресу `http://127.0.0.1:8000/v1`:
+
+```bash
+curl http://127.0.0.1:8000/v1/audio/transcriptions \
+  -F model=whisper-1 \
+  -F file=@meeting.m4a
+```
+
+Этот же адрес можно передать Python-клиенту OpenAI (`uv add openai`):
 
 ```python
 from pathlib import Path
@@ -65,28 +71,10 @@ with Path("meeting.m4a").open("rb") as audio:
 print(result.text)
 ```
 
-```bash
-curl http://127.0.0.1:8000/v1/audio/transcriptions \
-  -F model=whisper-1 \
-  -F file=@meeting.m4a
-```
-
-| Поддерживается | Не входит в 0.2 |
-|---|---|
-| `json`, `text`, `verbose_json`, `srt`, `vtt` | realtime, SSE, WebSocket |
-| Языковые hints: ru, kk, ky, uz, en | translation, diarization, logprobs |
-| Словесные и сегментные timestamps | prompt conditioning, ненулевая temperature |
-
-По умолчанию сервер слушает только `127.0.0.1:8000`, CORS выключен.
-Для доступа из локальной сети нужен `GIGAAM_STT_API_KEY` или `--api-key-file`;
-`--allow-unauthenticated` следует включать только в доверенной сети. На
-процесс загружается одна модель, а MLX-запросы выполняются
-последовательно через ограниченную очередь.
-
-Типовые ошибки подсказывают действие: при отсутствии web-зависимостей
-установите extra `[server]`; после `401` передайте настроенный bearer token;
-после `429` повторите запрос, когда освободится очередь; при `model_not_found`
-выберите ID из `/v1/models`. Для декодирования аудио также нужен `ffmpeg`.
+`whisper-1` — имя для совместимости: внутри по-прежнему работает GigaAM
+Multilingual MLX. По умолчанию сервер доступен только на этом Mac. Форматы,
+названия моделей, сетевой доступ и решение проблем описаны в
+[руководстве по серверу](https://github.com/ai-babai/gigaam-multilingual-mlx/blob/main/docs/server.ru.md).
 
 ## Зачем этот порт?
 
