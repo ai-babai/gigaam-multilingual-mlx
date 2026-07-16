@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare portable, validated Hugging Face model repositories for v0.1.0."""
+"""Prepare portable, validated Hugging Face model repositories."""
 
 from __future__ import annotations
 
@@ -49,6 +49,7 @@ UPSTREAM_REPOSITORY = "https://github.com/salute-developers/GigaAM"
 UPSTREAM_MODEL = "https://huggingface.co/ai-sage/GigaAM-Multilingual"
 UPSTREAM_REVISION = "3905cd51c3ed4e88c8edf33f3302969ba480a327"
 RELEASE_REVISION = "v0.1.0"
+PACKAGE_VERSION = "0.2.0"
 GITHUB = "https://github.com/ai-babai/gigaam-multilingual-mlx"
 PYPI = "https://pypi.org/project/gigaam-multilingual-mlx/"
 REPORT = f"{GITHUB}/blob/{RELEASE_REVISION}/docs/benchmark-v0.1.0.md"
@@ -99,7 +100,7 @@ def _portable_manifest(
     }
     result["compatibility"] = {
         "package": "gigaam-multilingual-mlx",
-        "package_version": ">=0.1.0,<0.2.0",
+        "package_version": ">=0.1.0,<0.3.0",
         "python": ">=3.12,<3.14",
         "mlx": ">=0.32,<0.33",
         "platform": "macOS 14+ on Apple Silicon",
@@ -204,13 +205,13 @@ def _card(
         "",
         "```bash",
         "brew install uv ffmpeg",
-        "uv tool install gigaam-multilingual-mlx==0.1.1",
+        f"uv tool install gigaam-multilingual-mlx=={PACKAGE_VERSION}",
         f"gigaam-stt audio.wav --variant {variant} --format json --output transcript.json",
         "```",
         "",
         "For the Python API inside a uv-managed project, run "
-        "`uv add gigaam-multilingual-mlx==0.1.1`. A regular "
-        "`python -m pip install gigaam-multilingual-mlx==0.1.1` remains supported.",
+        f"`uv add gigaam-multilingual-mlx=={PACKAGE_VERSION}`. A regular "
+        f"`python -m pip install gigaam-multilingual-mlx=={PACKAGE_VERSION}` remains supported.",
         "",
         "The package downloads the pinned `v0.1.0` snapshot into the standard Hugging Face "
         "cache. Input may be WAV, FLAC, MP3, M4A, or a video readable by `ffmpeg`; output may "
@@ -218,7 +219,7 @@ def _card(
         "",
         "```python",
         "from gigaam_multilingual_mlx import load_model",
-        "from gigaam_multilingual_mlx.cli import transcribe_file",
+        "from gigaam_multilingual_mlx.service import transcribe_file",
         "",
         f'model = load_model(variant="{variant}")',
         'result = transcribe_file(model, "audio.wav")',
@@ -233,7 +234,7 @@ def _card(
         f"{_format_size(manifest['weights']['bytes'])}",
         f"- Weights SHA-256: `{manifest['weights']['sha256']}`",
         f"- Config SHA-256: `{manifest['config']['sha256']}`",
-        "- Runtime compatibility: `gigaam-multilingual-mlx>=0.1.0,<0.2.0`, `mlx>=0.32,<0.33`",
+        "- Runtime compatibility: `gigaam-multilingual-mlx>=0.1.0,<0.3.0`, `mlx>=0.32,<0.33`",
         "",
         "`manifest.json` records source and parent revisions, hashes, conversion metadata, "
         "quantization rules, strict-load validation, and compatibility without machine-local paths.",
@@ -252,11 +253,25 @@ def _card(
         "fastest. See the full report for cold/load timings, p95, 30-second and 20-minute profiles, "
         "CER, deltas, hashes, commands, and limitations.",
         "",
+        "## Local transcription server",
+        "",
+        "Version 0.2.0 adds an optional OpenAI-compatible transcription endpoint:",
+        "",
+        "```bash",
+        f"uv tool install 'gigaam-multilingual-mlx[server]=={PACKAGE_VERSION}'",
+        f"gigaam-stt serve --variant {variant}",
+        "```",
+        "",
+        f"See the [server guide]({GITHUB}/blob/v{PACKAGE_VERSION}/docs/server.md) for curl and "
+        "OpenAI Python client examples, supported formats, network access, and limitations. "
+        "The `whisper-1` model name is a compatibility alias; inference still uses GigaAM "
+        "Multilingual MLX.",
+        "",
         "## Intended use and limitations",
         "",
         "Intended for local, offline automatic speech recognition in Russian, English, Kazakh, "
-        "Kyrgyz, and Uzbek on Apple Silicon. It is not a diarization system, streaming microphone "
-        "server, forced aligner, or cloud service. Word timestamps are approximate greedy-CTC "
+        "Kyrgyz, and Uzbek on Apple Silicon. It is not a diarization system, realtime streaming "
+        "service, forced aligner, or cloud service. Word timestamps are approximate greedy-CTC "
         "frame timings. Accuracy can degrade with noise, far-field speech, accents, code-switching, "
         "music, overlapping speakers, or domains unlike the public evaluation subsets.",
         "",
@@ -280,7 +295,7 @@ def _card(
         "  author = {Maksim Popkov},",
         "  title = {GigaAM-Multilingual MLX},",
         "  year = {2026},",
-        "  version = {0.1.0},",
+        f"  version = {{{PACKAGE_VERSION}}},",
         f"  url = {{{GITHUB}}}",
         "}",
         "",
