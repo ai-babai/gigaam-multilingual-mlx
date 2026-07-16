@@ -3,7 +3,7 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.0] - Unreleased
+## [0.2.0] - 2026-07-17
 
 ### Added
 
@@ -85,7 +85,7 @@ and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Local model, explicit Hub repository/revision, and offline workflows.
 - Developer-only conversion, parity, quality, and benchmark interfaces.
 
-[0.2.0]: https://github.com/ai-babai/gigaam-multilingual-mlx/compare/v0.1.5...HEAD
+[0.2.0]: https://github.com/ai-babai/gigaam-multilingual-mlx/compare/v0.1.5...v0.2.0
 [0.1.5]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.5
 [0.1.4]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.4
 [0.1.3]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.3
