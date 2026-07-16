@@ -250,7 +250,9 @@ def main() -> None:
         from .reports import compare_quality_reports
 
         result = compare_quality_reports(args.report)
-    Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
 
 
 if __name__ == "__main__":

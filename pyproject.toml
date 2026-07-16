@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "gigaam-multilingual-mlx"
 dynamic = ["version"]
-description = "Independent native MLX port of GigaAM-Multilingual for Apple Silicon"
+description = "Native offline speech-to-text for Russian, Kazakh, Kyrgyz, and Uzbek on Apple Silicon with GigaAM and MLX"
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
 license = "MIT"
@@ -14,11 +14,18 @@ authors = [{ name = "Maksim Popkov" }]
 maintainers = [{ name = "Maksim Popkov" }]
 keywords = [
   "automatic-speech-recognition",
+  "offline-asr",
   "gigaam",
   "mlx",
   "apple-silicon",
+  "macos",
   "russian",
+  "kazakh",
+  "kyrgyz",
+  "uzbek",
   "speech-to-text",
+  "transcription",
+  "quantization",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",

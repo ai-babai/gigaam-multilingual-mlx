@@ -1,0 +1,2843 @@
+{
+  "schema_version": 1,
+  "benchmark_suite_version": "public-asr-multilingual-v1",
+  "status": "draft-not-published",
+  "bootstrap": {
+    "seed": 20260716,
+    "iterations": 10000,
+    "unit": "utterance",
+    "interval": "percentile-95"
+  },
+  "datasets": [
+    {
+      "dataset_id": "google/fleurs",
+      "config": "ru_ru",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 620,
+      "audio_seconds": 6975.06,
+      "manifest": "google--fleurs-ru_ru.jsonl",
+      "manifest_sha256": "bfbb55979187721bb1e955f14a48ceed38c2e8fc6d3cfd6aa631b035bf58aed2",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "kk_kz",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 689,
+      "audio_seconds": 10655.94,
+      "manifest": "google--fleurs-kk_kz.jsonl",
+      "manifest_sha256": "fba3bb40395af7277f5585fab5709acfc9611005a139348fa1d9f57293f8895d",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "ky_kg",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 792,
+      "audio_seconds": 9046.14,
+      "manifest": "google--fleurs-ky_kg.jsonl",
+      "manifest_sha256": "667abd9fdb0e9553a1529236453dd386860f5e87b01efd09ddfb8442e92e6279",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "uz_uz",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 698,
+      "audio_seconds": 8076.84,
+      "manifest": "google--fleurs-uz_uz.jsonl",
+      "manifest_sha256": "e36b97707f3590b518309c62c37702402c54c5d9016b1e49e990c5cd91e63fad",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "en_us",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 525,
+      "audio_seconds": 4995.56,
+      "manifest": "google--fleurs-en_us.jsonl",
+      "manifest_sha256": "de4c6fce6dfc9f31e106340930b5ff2957e6f51356bbe74b5bd851c1ddd424e5",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    }
+  ],
+  "run_context": {
+    "schema_version": 1,
+    "run_date": "2026-07-16",
+    "machine": {
+      "display_name": "14-inch MacBook Pro",
+      "model_identifier": "Mac16,8",
+      "chip": "Apple M4 Pro",
+      "unified_memory_gb": 48,
+      "macos": "15.7.7 (24G720)"
+    },
+    "conditions": {
+      "power_source": "AC Power",
+      "battery_at_performance_start": "100%, charged",
+      "battery_at_performance_end": "100%, charged",
+      "thermal_warning": "none recorded",
+      "performance_warning": "none recorded",
+      "benchmark_concurrency": "one heavy benchmark process at a time",
+      "desktop_state": "ordinary desktop applications remained open; no parallel ML benchmark process",
+      "swap_note": "macOS retained swap from earlier quality runs; every isolated report records start, end, and delta, and no positive delta was observed"
+    },
+    "protocol": {
+      "quality_process_policy": "one implementation/language slice at a time; Whisper reused a loaded model across language slices",
+      "performance_process_policy": "one new process per implementation/language; load, one cold run, five warm runs, then exit",
+      "performance_order": "Original, FP16, INT8, INT6, INT4, Whisper large-v2, Whisper large-v3, Whisper large-v3-turbo; Russian, Kazakh, Kyrgyz, Uzbek within each implementation; Parakeet TDT 0.6B v3 Russian appended as a separately approved extension"
+    }
+  },
+  "performance_corpora": [
+    {
+      "language": "ru_ru",
+      "file": "ru_ru-5min.wav",
+      "sha256": "8cfe5cc53f7af05ba5832fd8a14f96944cf584efe4a3e36db02be76ae5c2facb",
+      "duration_seconds": 300.0
+    },
+    {
+      "language": "kk_kz",
+      "file": "kk_kz-5min.wav",
+      "sha256": "a0f95f43bd8454d8f23eeb135bbc4ae4720555293b5f8699688ba8faf9cbeaec",
+      "duration_seconds": 300.0
+    },
+    {
+      "language": "ky_kg",
+      "file": "ky_kg-5min.wav",
+      "sha256": "ec0c4b6f5cad1d1c52acdafbe62ff321b500753c0d08270c6b49b6909515eea0",
+      "duration_seconds": 300.0
+    },
+    {
+      "language": "uz_uz",
+      "file": "uz_uz-5min.wav",
+      "sha256": "34c510129899400567b70885981298a30492fb7f0de43ae503744d56be66cd52",
+      "duration_seconds": 300.0
+    }
+  ],
+  "artifacts": [
+    {
+      "implementation": "original",
+      "label": "Original GigaAM PyTorch/MPS",
+      "source_repository": "ai-sage/GigaAM-Multilingual",
+      "source_revision": "3905cd51c3ed4e88c8edf33f3302969ba480a327",
+      "weights_sha256": "c3fabefb50b41f08f4d7ad44e02c26c37d242882704cdcca2ebd98e45eff73d1",
+      "bytes": 2341674025
+    },
+    {
+      "implementation": "fp16",
+      "label": "GigaAM MLX FP16",
+      "repository": "ai-babai/gigaam-multilingual-mlx",
+      "revision": "v0.1.0",
+      "model_name": "multilingual_large_ctc",
+      "dtype": "float16",
+      "quantization": null,
+      "source_repository": "ai-sage/GigaAM-Multilingual",
+      "source_revision": "3905cd51c3ed4e88c8edf33f3302969ba480a327",
+      "weights_sha256": "d6d7bcef5e1b77700c84d669635a88021724fd3b1ae0c408890bccdf3c8d2269",
+      "bytes": 1170777788
+    },
+    {
+      "implementation": "int8",
+      "label": "GigaAM MLX INT8 g64",
+      "repository": "ai-babai/gigaam-multilingual-mlx-int8-g64",
+      "revision": "v0.1.0",
+      "model_name": "multilingual_large_ctc",
+      "dtype": "float16",
+      "quantization": {
+        "profile": "int8-g64",
+        "method": "weight_only_affine",
+        "group_size": 64,
+        "rules": [
+          {
+            "selector": "all_linear",
+            "bits": 8
+          }
+        ]
+      },
+      "source_repository": "ai-sage/GigaAM-Multilingual",
+      "source_revision": "3905cd51c3ed4e88c8edf33f3302969ba480a327",
+      "weights_sha256": "efd4103be5875ba556e6645ce34dd7def2339c7377209c86b7dd5787fb443729",
+      "bytes": 698963894
+    },
+    {
+      "implementation": "int6",
+      "label": "GigaAM MLX INT6 g64",
+      "repository": "ai-babai/gigaam-multilingual-mlx-int6-g64",
+      "revision": "v0.1.0",
+      "model_name": "multilingual_large_ctc",
+      "dtype": "float16",
+      "quantization": {
+        "profile": "int6-g64",
+        "method": "weight_only_affine",
+        "group_size": 64,
+        "rules": [
+          {
+            "selector": "all_linear",
+            "bits": 6
+          }
+        ]
+      },
+      "source_repository": "ai-sage/GigaAM-Multilingual",
+      "source_revision": "3905cd51c3ed4e88c8edf33f3302969ba480a327",
+      "weights_sha256": "83dad98e9bbb655c2bb49bd1ee65c575d0ccd77d5cad9044f5af8f8cca2987ae",
+      "bytes": 573134636
+    },
+    {
+      "implementation": "int4",
+      "label": "GigaAM MLX INT4 g64",
+      "repository": "ai-babai/gigaam-multilingual-mlx-int4-g64",
+      "revision": "v0.1.0",
+      "model_name": "multilingual_large_ctc",
+      "dtype": "float16",
+      "quantization": {
+        "profile": "int4-g64",
+        "method": "weight_only_affine",
+        "group_size": 64,
+        "rules": [
+          {
+            "selector": "all_linear",
+            "bits": 4
+          }
+        ]
+      },
+      "source_repository": "ai-sage/GigaAM-Multilingual",
+      "source_revision": "3905cd51c3ed4e88c8edf33f3302969ba480a327",
+      "weights_sha256": "25a7912af016dc24526e0a06efbc488a979a4f0c874225d5ab4966421b1211da",
+      "bytes": 447305376
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "label": "MLX Whisper large-v2",
+      "directory": "cce86229e2765266197fef869ce9f7e2550067ab",
+      "weights_file": "weights.npz",
+      "weights_sha256": "c9888a2d03b4e9906c2864151f56dc21e58d617938da0eb818152e3f99adc3f1",
+      "weights_bytes": 3083149424,
+      "artifact_bytes": 3083149999
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "label": "MLX Whisper large-v3",
+      "directory": "49e6aa286ad60c14352c404340ded53710378a11",
+      "weights_file": "weights.npz",
+      "weights_sha256": "05ff791ce3630fae47e7c51004e9666204d786246ec07cac6110af768099b40d",
+      "weights_bytes": 3083520416,
+      "artifact_bytes": 3083522487
+    },
+    {
+      "implementation": "whisper-turbo",
+      "label": "MLX Whisper large-v3-turbo",
+      "directory": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb",
+      "weights_file": "weights.safetensors",
+      "weights_sha256": "951ed3fc1203e6a62467abb2144a96ce7eafca8fa77e3704fdb8635ff3e7f8a6",
+      "weights_bytes": 1613977612,
+      "artifact_bytes": 1613979758
+    },
+    {
+      "implementation": "parakeet-v3",
+      "label": "MLX Parakeet TDT 0.6B v3",
+      "directory": "ed2b7e8c15f9aaa0b5772e2efb986255eaef7e15",
+      "weights_file": "model.safetensors",
+      "weights_sha256": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "weights_bytes": 2508288736,
+      "artifact_bytes": 2509042622
+    }
+  ],
+  "environments": [
+    {
+      "implementation": "original",
+      "python": "3.13.2",
+      "gigaam_multilingual_mlx": "0.1.1",
+      "torch": "2.10.0",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": "mps"
+    },
+    {
+      "implementation": "fp16",
+      "python": "3.13.2",
+      "gigaam_multilingual_mlx": "0.1.1",
+      "mlx": "0.32.0",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "int8",
+      "python": "3.13.2",
+      "gigaam_multilingual_mlx": "0.1.1",
+      "mlx": "0.32.0",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "int6",
+      "python": "3.13.2",
+      "gigaam_multilingual_mlx": "0.1.1",
+      "mlx": "0.32.0",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "int4",
+      "python": "3.13.2",
+      "gigaam_multilingual_mlx": "0.1.1",
+      "mlx": "0.32.0",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "python": "3.13.2",
+      "mlx": "0.32.0",
+      "mlx_whisper": "0.4.3",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "python": "3.13.2",
+      "mlx": "0.32.0",
+      "mlx_whisper": "0.4.3",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "whisper-turbo",
+      "python": "3.13.2",
+      "mlx": "0.32.0",
+      "mlx_whisper": "0.4.3",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    },
+    {
+      "implementation": "parakeet-v3",
+      "python": "3.13.2",
+      "mlx": "0.32.0",
+      "parakeet_mlx": "0.5.2",
+      "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+      "device": {
+        "device_name": "Apple M4 Pro",
+        "max_recommended_working_set_size": 38654705664,
+        "memory_size": 51539607552,
+        "architecture": "applegpu_g16s",
+        "max_buffer_length": 28991029248,
+        "resource_limit": 499000
+      }
+    }
+  ],
+  "quality": [
+    {
+      "language": "ru_ru",
+      "implementation": "original",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 2.99548974555357,
+      "wer_ci95_percent": [
+        2.5992314024179843,
+        3.4154806962961506
+      ],
+      "cer_percent": 0.8004587703997516,
+      "substitutions": 293,
+      "deletions": 38,
+      "insertions": 21,
+      "hits": 11420,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11734,
+      "hypothesis_characters_without_spaces": 72597,
+      "empty_hypotheses": 0,
+      "exact_matches": 410,
+      "detected_languages": null
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "fp16",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 2.99548974555357,
+      "wer_ci95_percent": [
+        2.5992314024179843,
+        3.4154806962961506
+      ],
+      "cer_percent": 0.7992640558170653,
+      "substitutions": 293,
+      "deletions": 38,
+      "insertions": 21,
+      "hits": 11420,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11734,
+      "hypothesis_characters_without_spaces": 72598,
+      "empty_hypotheses": 0,
+      "exact_matches": 410,
+      "detected_languages": null
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int8",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.0125095736533063,
+      "wer_ci95_percent": [
+        2.615669491075223,
+        3.4303998596568666
+      ],
+      "cer_percent": 0.8028481995651239,
+      "substitutions": 295,
+      "deletions": 38,
+      "insertions": 21,
+      "hits": 11418,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11734,
+      "hypothesis_characters_without_spaces": 72599,
+      "empty_hypotheses": 0,
+      "exact_matches": 409,
+      "detected_languages": null
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int6",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.0125095736533063,
+      "wer_ci95_percent": [
+        2.617877055080073,
+        3.434537505604402
+      ],
+      "cer_percent": 0.8016534849824376,
+      "substitutions": 295,
+      "deletions": 38,
+      "insertions": 21,
+      "hits": 11418,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11734,
+      "hypothesis_characters_without_spaces": 72595,
+      "empty_hypotheses": 0,
+      "exact_matches": 410,
+      "detected_languages": null
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int4",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.2337673389498764,
+      "wer_ci95_percent": [
+        2.8354136350606027,
+        3.664190450569428
+      ],
+      "cer_percent": 0.8327160641322788,
+      "substitutions": 316,
+      "deletions": 42,
+      "insertions": 22,
+      "hits": 11393,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11731,
+      "hypothesis_characters_without_spaces": 72601,
+      "empty_hypotheses": 0,
+      "exact_matches": 396,
+      "detected_languages": null
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-large-v2",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.854991064590248,
+      "wer_ci95_percent": [
+        3.3895312158167052,
+        4.32904761293836
+      ],
+      "cer_percent": 0.9951972473776015,
+      "substitutions": 369,
+      "deletions": 51,
+      "insertions": 33,
+      "hits": 11331,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11733,
+      "hypothesis_characters_without_spaces": 72386,
+      "empty_hypotheses": 0,
+      "exact_matches": 370,
+      "detected_languages": {
+        "ru": 620
+      }
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-large-v3",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.123138456301591,
+      "wer_ci95_percent": [
+        2.7190961581203847,
+        3.5332712664706687
+      ],
+      "cer_percent": 0.815990059974672,
+      "substitutions": 307,
+      "deletions": 36,
+      "insertions": 24,
+      "hits": 11408,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11739,
+      "hypothesis_characters_without_spaces": 72428,
+      "empty_hypotheses": 0,
+      "exact_matches": 404,
+      "detected_languages": {
+        "ru": 620
+      }
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-turbo",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 3.5486341587949966,
+      "wer_ci95_percent": [
+        3.10393026566225,
+        4.022790128667539
+      ],
+      "cer_percent": 0.8840887911877853,
+      "substitutions": 349,
+      "deletions": 42,
+      "insertions": 26,
+      "hits": 11360,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11735,
+      "hypothesis_characters_without_spaces": 72433,
+      "empty_hypotheses": 0,
+      "exact_matches": 385,
+      "detected_languages": {
+        "ru": 620
+      }
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "parakeet-v3",
+      "files": 620,
+      "audio_seconds": 6975.06,
+      "wer_percent": 4.961279891073101,
+      "wer_ci95_percent": [
+        4.492193425672898,
+        5.453942621803344
+      ],
+      "cer_percent": 1.2986547513798954,
+      "substitutions": 497,
+      "deletions": 62,
+      "insertions": 24,
+      "hits": 11192,
+      "reference_words": 11751,
+      "reference_characters_without_spaces": 72571,
+      "hypothesis_words": 11713,
+      "hypothesis_characters_without_spaces": 72384,
+      "empty_hypotheses": 0,
+      "exact_matches": 299,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "original",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 4.324930939226519,
+      "wer_ci95_percent": [
+        3.8362074167815536,
+        4.819586128572758
+      ],
+      "cer_percent": 1.1830564558166943,
+      "substitutions": 425,
+      "deletions": 36,
+      "insertions": 40,
+      "hits": 11123,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11588,
+      "hypothesis_characters_without_spaces": 77584,
+      "empty_hypotheses": 0,
+      "exact_matches": 410,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "fp16",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 4.342196132596685,
+      "wer_ci95_percent": [
+        3.8507295762739293,
+        4.837169116404646
+      ],
+      "cer_percent": 1.1830564558166943,
+      "substitutions": 427,
+      "deletions": 36,
+      "insertions": 40,
+      "hits": 11121,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11588,
+      "hypothesis_characters_without_spaces": 77582,
+      "empty_hypotheses": 0,
+      "exact_matches": 409,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int8",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 4.350828729281768,
+      "wer_ci95_percent": [
+        3.8606554205788526,
+        4.845507603452405
+      ],
+      "cer_percent": 1.1853228474945041,
+      "substitutions": 427,
+      "deletions": 36,
+      "insertions": 41,
+      "hits": 11121,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11589,
+      "hypothesis_characters_without_spaces": 77581,
+      "empty_hypotheses": 0,
+      "exact_matches": 409,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int6",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 4.3853591160221,
+      "wer_ci95_percent": [
+        3.891385471730545,
+        4.881997103177984
+      ],
+      "cer_percent": 1.1841896516555992,
+      "substitutions": 431,
+      "deletions": 34,
+      "insertions": 43,
+      "hits": 11119,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11593,
+      "hypothesis_characters_without_spaces": 77578,
+      "empty_hypotheses": 0,
+      "exact_matches": 407,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int4",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 4.376726519337017,
+      "wer_ci95_percent": [
+        3.8966619616074576,
+        4.8604318478395605
+      ],
+      "cer_percent": 1.158126147360787,
+      "substitutions": 432,
+      "deletions": 35,
+      "insertions": 40,
+      "hits": 11117,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11589,
+      "hypothesis_characters_without_spaces": 77559,
+      "empty_hypotheses": 0,
+      "exact_matches": 404,
+      "detected_languages": null
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-large-v2",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 39.4682320441989,
+      "wer_ci95_percent": [
+        38.258571295321595,
+        40.703865956382465
+      ],
+      "cer_percent": 8.32105704507853,
+      "substitutions": 3893,
+      "deletions": 250,
+      "insertions": 429,
+      "hits": 7441,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11763,
+      "hypothesis_characters_without_spaces": 77640,
+      "empty_hypotheses": 0,
+      "exact_matches": 3,
+      "detected_languages": {
+        "kk": 689
+      }
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-large-v3",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 32.777969613259664,
+      "wer_ci95_percent": [
+        31.69387519676377,
+        33.92581817378352
+      ],
+      "cer_percent": 6.765179158262131,
+      "substitutions": 3222,
+      "deletions": 250,
+      "insertions": 325,
+      "hits": 8112,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11659,
+      "hypothesis_characters_without_spaces": 77250,
+      "empty_hypotheses": 0,
+      "exact_matches": 9,
+      "detected_languages": {
+        "kk": 689
+      }
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-turbo",
+      "files": 689,
+      "audio_seconds": 10655.94,
+      "wer_percent": 20.467886740331494,
+      "wer_ci95_percent": [
+        19.468085577616115,
+        21.48153048063427
+      ],
+      "cer_percent": 4.072705845024137,
+      "substitutions": 1969,
+      "deletions": 151,
+      "insertions": 251,
+      "hits": 9464,
+      "reference_words": 11584,
+      "reference_characters_without_spaces": 77351,
+      "hypothesis_words": 11684,
+      "hypothesis_characters_without_spaces": 77467,
+      "empty_hypotheses": 0,
+      "exact_matches": 55,
+      "detected_languages": {
+        "kk": 689
+      }
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "original",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 5.552664833122724,
+      "wer_ci95_percent": [
+        5.036711708447895,
+        6.075958399172471
+      ],
+      "cer_percent": 1.6205359329838829,
+      "substitutions": 604,
+      "deletions": 107,
+      "insertions": 36,
+      "hits": 12742,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13382,
+      "hypothesis_characters_without_spaces": 89135,
+      "empty_hypotheses": 0,
+      "exact_matches": 402,
+      "detected_languages": null
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "fp16",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 5.560098119378577,
+      "wer_ci95_percent": [
+        5.042428317503146,
+        6.0885273452913475
+      ],
+      "cer_percent": 1.6215157007789156,
+      "substitutions": 605,
+      "deletions": 107,
+      "insertions": 36,
+      "hits": 12741,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13382,
+      "hypothesis_characters_without_spaces": 89137,
+      "empty_hypotheses": 0,
+      "exact_matches": 404,
+      "detected_languages": null
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int8",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 5.582397978146139,
+      "wer_ci95_percent": [
+        5.060861312346349,
+        6.118090645503319
+      ],
+      "cer_percent": 1.6215157007789156,
+      "substitutions": 607,
+      "deletions": 108,
+      "insertions": 36,
+      "hits": 12738,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13381,
+      "hypothesis_characters_without_spaces": 89135,
+      "empty_hypotheses": 0,
+      "exact_matches": 403,
+      "detected_languages": null
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int6",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 5.567531405634431,
+      "wer_ci95_percent": [
+        5.041952872109009,
+        6.099218038600499
+      ],
+      "cer_percent": 1.6146573262136872,
+      "substitutions": 604,
+      "deletions": 108,
+      "insertions": 37,
+      "hits": 12741,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13382,
+      "hypothesis_characters_without_spaces": 89130,
+      "empty_hypotheses": 0,
+      "exact_matches": 408,
+      "detected_languages": null
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int4",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 5.768230134542481,
+      "wer_ci95_percent": [
+        5.235128852768669,
+        6.309403334025935
+      ],
+      "cer_percent": 1.6499289668348602,
+      "substitutions": 628,
+      "deletions": 110,
+      "insertions": 38,
+      "hits": 12715,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13381,
+      "hypothesis_characters_without_spaces": 89096,
+      "empty_hypotheses": 0,
+      "exact_matches": 395,
+      "detected_languages": null
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-large-v2",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 92.58158031665799,
+      "wer_ci95_percent": [
+        91.30339363166082,
+        93.99599360830835
+      ],
+      "cer_percent": 42.571890461960514,
+      "substitutions": 11161,
+      "deletions": 524,
+      "insertions": 770,
+      "hits": 1768,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13699,
+      "hypothesis_characters_without_spaces": 89038,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "az": 137,
+        "bo": 1,
+        "jw": 1,
+        "ka": 6,
+        "kk": 579,
+        "mn": 4,
+        "nn": 34,
+        "ru": 16,
+        "tr": 14
+      }
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-large-v3",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 86.67955102951015,
+      "wer_ci95_percent": [
+        85.7029123550377,
+        87.67566464964017
+      ],
+      "cer_percent": 27.308087983147995,
+      "substitutions": 10629,
+      "deletions": 424,
+      "insertions": 608,
+      "hits": 2400,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13637,
+      "hypothesis_characters_without_spaces": 88379,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "az": 14,
+        "be": 1,
+        "bo": 3,
+        "fo": 2,
+        "kk": 759,
+        "mn": 1,
+        "ps": 1,
+        "tr": 11
+      }
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-turbo",
+      "files": 792,
+      "audio_seconds": 9046.14,
+      "wer_percent": 84.07790083996134,
+      "wer_ci95_percent": [
+        83.06311721484639,
+        85.23507764827806
+      ],
+      "cer_percent": 24.590212119727624,
+      "substitutions": 10388,
+      "deletions": 510,
+      "insertions": 413,
+      "hits": 2555,
+      "reference_words": 13453,
+      "reference_characters_without_spaces": 89404,
+      "hypothesis_words": 13356,
+      "hypothesis_characters_without_spaces": 88680,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "az": 1,
+        "bo": 1,
+        "kk": 790
+      }
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "original",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 7.310154793743415,
+      "wer_ci95_percent": [
+        6.682152702020057,
+        7.9607994071929475
+      ],
+      "cer_percent": 1.388452534179242,
+      "substitutions": 793,
+      "deletions": 84,
+      "insertions": 25,
+      "hits": 11462,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12280,
+      "hypothesis_characters_without_spaces": 86824,
+      "empty_hypotheses": 0,
+      "exact_matches": 295,
+      "detected_languages": null
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "fp16",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 7.36688548504741,
+      "wer_ci95_percent": [
+        6.740938010499366,
+        8.01795899749477
+      ],
+      "cer_percent": 1.3925064101914444,
+      "substitutions": 798,
+      "deletions": 86,
+      "insertions": 25,
+      "hits": 11455,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12278,
+      "hypothesis_characters_without_spaces": 86826,
+      "empty_hypotheses": 0,
+      "exact_matches": 292,
+      "detected_languages": null
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int8",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 7.334467947159413,
+      "wer_ci95_percent": [
+        6.71206813900583,
+        7.982019935149087
+      ],
+      "cer_percent": 1.3904794721853433,
+      "substitutions": 794,
+      "deletions": 85,
+      "insertions": 26,
+      "hits": 11460,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12280,
+      "hypothesis_characters_without_spaces": 86828,
+      "empty_hypotheses": 0,
+      "exact_matches": 294,
+      "detected_languages": null
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int6",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 7.310154793743415,
+      "wer_ci95_percent": [
+        6.691660387912024,
+        7.953265783379726
+      ],
+      "cer_percent": 1.388452534179242,
+      "substitutions": 793,
+      "deletions": 83,
+      "insertions": 26,
+      "hits": 11463,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12282,
+      "hypothesis_characters_without_spaces": 86817,
+      "empty_hypotheses": 0,
+      "exact_matches": 297,
+      "detected_languages": null
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int4",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 7.4965556365994,
+      "wer_ci95_percent": [
+        6.865272943425313,
+        8.147213633051852
+      ],
+      "cer_percent": 1.4046680382280508,
+      "substitutions": 818,
+      "deletions": 83,
+      "insertions": 24,
+      "hits": 11438,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12280,
+      "hypothesis_characters_without_spaces": 86795,
+      "empty_hypotheses": 0,
+      "exact_matches": 286,
+      "detected_languages": null
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-large-v2",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 95.55069292487237,
+      "wer_ci95_percent": [
+        91.82446448072338,
+        100.2760949552341
+      ],
+      "cer_percent": 33.389749774503144,
+      "substitutions": 9666,
+      "deletions": 598,
+      "insertions": 1526,
+      "hits": 2075,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 13267,
+      "hypothesis_characters_without_spaces": 83930,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "uz": 698
+      }
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-large-v3",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 87.98119782802496,
+      "wer_ci95_percent": [
+        85.85700600431197,
+        90.55096424897538
+      ],
+      "cer_percent": 26.667409877268906,
+      "substitutions": 9548,
+      "deletions": 567,
+      "insertions": 741,
+      "hits": 2224,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 12513,
+      "hypothesis_characters_without_spaces": 81675,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "uz": 698
+      }
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-turbo",
+      "files": 698,
+      "audio_seconds": 8076.84,
+      "wer_percent": 108.93103168814329,
+      "wer_ci95_percent": [
+        104.2820957975066,
+        114.05188167528205
+      ],
+      "cer_percent": 70.51210588724143,
+      "substitutions": 10545,
+      "deletions": 1092,
+      "insertions": 1804,
+      "hits": 702,
+      "reference_words": 12339,
+      "reference_characters_without_spaces": 87030,
+      "hypothesis_words": 13051,
+      "hypothesis_characters_without_spaces": 89924,
+      "empty_hypotheses": 0,
+      "exact_matches": 0,
+      "detected_languages": {
+        "uz": 698
+      }
+    },
+    {
+      "language": "en_us",
+      "implementation": "original",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 9.716882209017825,
+      "wer_ci95_percent": [
+        8.961976855477246,
+        10.49768331049729
+      ],
+      "cer_percent": 3.0123456790123457,
+      "substitutions": 868,
+      "deletions": 133,
+      "insertions": 111,
+      "hits": 10443,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11422,
+      "hypothesis_characters_without_spaces": 55553,
+      "empty_hypotheses": 0,
+      "exact_matches": 117,
+      "detected_languages": null
+    },
+    {
+      "language": "en_us",
+      "implementation": "fp16",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 9.725620412443202,
+      "wer_ci95_percent": [
+        8.969877829482758,
+        10.51130335529639
+      ],
+      "cer_percent": 3.009352787130565,
+      "substitutions": 867,
+      "deletions": 135,
+      "insertions": 111,
+      "hits": 10442,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11420,
+      "hypothesis_characters_without_spaces": 55556,
+      "empty_hypotheses": 0,
+      "exact_matches": 117,
+      "detected_languages": null
+    },
+    {
+      "language": "en_us",
+      "implementation": "int8",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 9.734358615868576,
+      "wer_ci95_percent": [
+        8.975449894073275,
+        10.515448974809182
+      ],
+      "cer_percent": 3.004863449307894,
+      "substitutions": 869,
+      "deletions": 136,
+      "insertions": 109,
+      "hits": 10439,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11417,
+      "hypothesis_characters_without_spaces": 55554,
+      "empty_hypotheses": 0,
+      "exact_matches": 116,
+      "detected_languages": null
+    },
+    {
+      "language": "en_us",
+      "implementation": "int6",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 9.847955260398463,
+      "wer_ci95_percent": [
+        9.09645751730594,
+        10.613915091924058
+      ],
+      "cer_percent": 3.016835016835017,
+      "substitutions": 878,
+      "deletions": 135,
+      "insertions": 114,
+      "hits": 10431,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11423,
+      "hypothesis_characters_without_spaces": 55567,
+      "empty_hypotheses": 0,
+      "exact_matches": 116,
+      "detected_languages": null
+    },
+    {
+      "language": "en_us",
+      "implementation": "int4",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 9.882908074099966,
+      "wer_ci95_percent": [
+        9.125894770479107,
+        10.665868247284791
+      ],
+      "cer_percent": 3.0662177328844,
+      "substitutions": 887,
+      "deletions": 131,
+      "insertions": 113,
+      "hits": 10426,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11426,
+      "hypothesis_characters_without_spaces": 55550,
+      "empty_hypotheses": 0,
+      "exact_matches": 110,
+      "detected_languages": null
+    },
+    {
+      "language": "en_us",
+      "implementation": "whisper-large-v2",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 4.194337644180356,
+      "wer_ci95_percent": [
+        3.7265398710489928,
+        4.682250469695499
+      ],
+      "cer_percent": 1.7538346427235316,
+      "substitutions": 356,
+      "deletions": 73,
+      "insertions": 51,
+      "hits": 11015,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11422,
+      "hypothesis_characters_without_spaces": 55658,
+      "empty_hypotheses": 0,
+      "exact_matches": 262,
+      "detected_languages": {
+        "en": 525
+      }
+    },
+    {
+      "language": "en_us",
+      "implementation": "whisper-large-v3",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 4.098217406501224,
+      "wer_ci95_percent": [
+        3.6353879007708456,
+        4.589505350654504
+      ],
+      "cer_percent": 1.7418630751964086,
+      "substitutions": 352,
+      "deletions": 75,
+      "insertions": 42,
+      "hits": 11017,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11411,
+      "hypothesis_characters_without_spaces": 55665,
+      "empty_hypotheses": 0,
+      "exact_matches": 273,
+      "detected_languages": {
+        "en": 525
+      }
+    },
+    {
+      "language": "en_us",
+      "implementation": "whisper-turbo",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 4.578818594896889,
+      "wer_ci95_percent": [
+        4.096099301251126,
+        5.081014923850992
+      ],
+      "cer_percent": 1.9408903853348296,
+      "substitutions": 390,
+      "deletions": 79,
+      "insertions": 55,
+      "hits": 10975,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11420,
+      "hypothesis_characters_without_spaces": 55651,
+      "empty_hypotheses": 0,
+      "exact_matches": 254,
+      "detected_languages": {
+        "en": 525
+      }
+    },
+    {
+      "language": "en_us",
+      "implementation": "parakeet-v3",
+      "files": 525,
+      "audio_seconds": 4995.56,
+      "wer_percent": 4.928346731911919,
+      "wer_ci95_percent": [
+        4.394574493275783,
+        5.462231137217532
+      ],
+      "cer_percent": 2.120463898241676,
+      "substitutions": 424,
+      "deletions": 104,
+      "insertions": 36,
+      "hits": 10916,
+      "reference_words": 11444,
+      "reference_characters_without_spaces": 55906,
+      "hypothesis_words": 11376,
+      "hypothesis_characters_without_spaces": 55535,
+      "empty_hypotheses": 0,
+      "exact_matches": 239,
+      "detected_languages": null
+    }
+  ],
+  "comparisons": [
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "wer_delta_pp": -0.8424814909369416,
+      "relative_error_reduction": 0.2185430463576159,
+      "wer_delta_pp_ci95": [
+        -1.229029683004304,
+        -0.4462744516003187
+      ],
+      "relative_error_reduction_ci95": [
+        0.1243477361763725,
+        0.303031979082864
+      ]
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "wer_delta_pp": -0.11062888264828513,
+      "relative_error_reduction": 0.03542234332425064,
+      "wer_delta_pp_ci95": [
+        -0.4618355331364958,
+        0.24896555131989567
+      ],
+      "relative_error_reduction_ci95": [
+        -0.08447065085278957,
+        0.13984687493922307
+      ]
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "wer_delta_pp": -0.5361245851416903,
+      "relative_error_reduction": 0.15107913669064754,
+      "wer_delta_pp_ci95": [
+        -0.8969790075156338,
+        -0.17291988202173172
+      ],
+      "relative_error_reduction_ci95": [
+        0.05139068496306332,
+        0.24065636898580817
+      ]
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "parakeet-v3",
+      "wer_delta_pp": -1.9487703174197943,
+      "relative_error_reduction": 0.3927958833619211,
+      "wer_delta_pp_ci95": [
+        -2.344949019067395,
+        -1.5631436153358687
+      ],
+      "relative_error_reduction_ci95": [
+        0.32682905168305676,
+        0.455960236958026
+      ]
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "wer_delta_pp": -35.11740331491713,
+      "relative_error_reduction": 0.889763779527559,
+      "wer_delta_pp_ci95": [
+        -36.34396489194402,
+        -33.920331735473596
+      ],
+      "relative_error_reduction_ci95": [
+        0.8776924850194432,
+        0.901862068814577
+      ]
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "wer_delta_pp": -28.4271408839779,
+      "relative_error_reduction": 0.8672636291809322,
+      "wer_delta_pp_ci95": [
+        -29.541253881873843,
+        -27.37661927294158
+      ],
+      "relative_error_reduction_ci95": [
+        0.8528217184652829,
+        0.8815514394095383
+      ]
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "wer_delta_pp": -16.11705801104972,
+      "relative_error_reduction": 0.7874314635175031,
+      "wer_delta_pp_ci95": [
+        -17.09086892266784,
+        -15.165941919988354
+      ],
+      "relative_error_reduction_ci95": [
+        0.7643281575556652,
+        0.8101755359998734
+      ]
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "wer_delta_pp": -86.99918233851186,
+      "relative_error_reduction": 0.93970293054998,
+      "wer_delta_pp_ci95": [
+        -88.50767878737643,
+        -85.60140557202568
+      ],
+      "relative_error_reduction_ci95": [
+        0.9338583380964983,
+        0.9453738275179825
+      ]
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "wer_delta_pp": -81.09715305136402,
+      "relative_error_reduction": 0.9355972901123403,
+      "wer_delta_pp_ci95": [
+        -82.2112677161876,
+        -80.04455543849164
+      ],
+      "relative_error_reduction_ci95": [
+        0.9294930602286616,
+        0.9415591331713061
+      ]
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "wer_delta_pp": -78.49550286181521,
+      "relative_error_reduction": 0.9336044558394484,
+      "wer_delta_pp_ci95": [
+        -79.73457684105556,
+        -77.40912105426388
+      ],
+      "relative_error_reduction_ci95": [
+        0.9272579423414329,
+        0.9397880457160321
+      ]
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "wer_delta_pp": -88.21622497771294,
+      "relative_error_reduction": 0.9232400339270568,
+      "wer_delta_pp_ci95": [
+        -92.90679276623243,
+        -84.5238999161843
+      ],
+      "relative_error_reduction_ci95": [
+        0.9159460212436035,
+        0.930106112994094
+      ]
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "wer_delta_pp": -80.64672988086554,
+      "relative_error_reduction": 0.9166359616801768,
+      "wer_delta_pp_ci95": [
+        -83.19609772393297,
+        -78.53786202809921
+      ],
+      "relative_error_reduction_ci95": [
+        0.9092138441118117,
+        0.9237216542179246
+      ]
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "wer_delta_pp": -101.59656374098387,
+      "relative_error_reduction": 0.9326687002455174,
+      "wer_delta_pp_ci95": [
+        -106.67981702581598,
+        -96.9466524099678
+      ],
+      "relative_error_reduction_ci95": [
+        0.9262277673988109,
+        0.9386859121917477
+      ]
+    },
+    {
+      "language": "en_us",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "wer_delta_pp": 5.540020971688221,
+      "relative_error_reduction": -1.3208333333333333,
+      "wer_delta_pp_ci95": [
+        4.8969635807997065,
+        6.189274450373795
+      ],
+      "relative_error_reduction_ci95": [
+        -1.561650904863642,
+        -1.1131056574335298
+      ]
+    },
+    {
+      "language": "en_us",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "wer_delta_pp": 5.636141209367353,
+      "relative_error_reduction": -1.3752665245202556,
+      "wer_delta_pp_ci95": [
+        5.009940755906049,
+        6.273701233070548
+      ],
+      "relative_error_reduction_ci95": [
+        -1.6253116294650727,
+        -1.1622175611705878
+      ]
+    },
+    {
+      "language": "en_us",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "wer_delta_pp": 5.155540020971688,
+      "relative_error_reduction": -1.1259541984732824,
+      "wer_delta_pp_ci95": [
+        4.562568312546386,
+        5.755976254483182
+      ],
+      "relative_error_reduction_ci95": [
+        -1.3207566823899368,
+        -0.9547979021194131
+      ]
+    },
+    {
+      "language": "en_us",
+      "candidate": "int8",
+      "baseline": "parakeet-v3",
+      "wer_delta_pp": 4.806011883956658,
+      "relative_error_reduction": -0.975177304964539,
+      "wer_delta_pp_ci95": [
+        4.222910748000448,
+        5.394941451634179
+      ],
+      "relative_error_reduction_ci95": [
+        -1.1510239677266256,
+        -0.8258706467661692
+      ]
+    }
+  ],
+  "performance": [
+    {
+      "language": "ru_ru",
+      "implementation": "original",
+      "artifact_bytes": 2341674025,
+      "load_seconds": 6.442486249958165,
+      "cold_seconds": 3.093361208040733,
+      "cold_rtf": 0.010311204026802443,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.7887154999771155,
+      "warm_p95_seconds": 2.804720374988392,
+      "warm_p95_rtf": 0.009349067916627974,
+      "warm_median_rtf": 0.009295718333257052,
+      "warm_median_audio_seconds_per_second": 107.57640928322083,
+      "peak_rss_bytes": 5059133440,
+      "peak_device_bytes": 4064296960,
+      "peak_active_device_bytes": null,
+      "peak_cache_device_bytes": null,
+      "minimum_available_memory_bytes": 29931732992,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "fp16",
+      "artifact_bytes": 1170777788,
+      "load_seconds": 0.890105584054254,
+      "cold_seconds": 3.1189665000420064,
+      "cold_rtf": 0.010396555000140022,
+      "warm_runs": 5,
+      "warm_median_seconds": 1.9517246669856831,
+      "warm_p95_seconds": 1.9526016250019893,
+      "warm_p95_rtf": 0.006508672083339964,
+      "warm_median_rtf": 0.006505748889952277,
+      "warm_median_audio_seconds_per_second": 153.71020568353592,
+      "peak_rss_bytes": 1350025216,
+      "peak_device_bytes": 1918310386,
+      "peak_active_device_bytes": 1170691578,
+      "peak_cache_device_bytes": 1242102075,
+      "minimum_available_memory_bytes": 34825928704,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int8",
+      "artifact_bytes": 698963894,
+      "load_seconds": 0.5934300000080839,
+      "cold_seconds": 2.1938422080129385,
+      "cold_rtf": 0.007312807360043128,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.0363629579660483,
+      "warm_p95_seconds": 2.0513342089834623,
+      "warm_p95_rtf": 0.006837780696611541,
+      "warm_median_rtf": 0.006787876526553494,
+      "warm_median_audio_seconds_per_second": 147.32147765035205,
+      "peak_rss_bytes": 877232128,
+      "peak_device_bytes": 1215485938,
+      "peak_active_device_bytes": 698832378,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 34582986752,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int6",
+      "artifact_bytes": 573134636,
+      "load_seconds": 0.48908862500684336,
+      "cold_seconds": 2.125603708962444,
+      "cold_rtf": 0.007085345696541481,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.1953914999612607,
+      "warm_p95_seconds": 2.2472416249802336,
+      "warm_p95_rtf": 0.007490805416600779,
+      "warm_median_rtf": 0.007317971666537536,
+      "warm_median_audio_seconds_per_second": 136.64988682214252,
+      "peak_rss_bytes": 755023872,
+      "peak_device_bytes": 1089656818,
+      "peak_active_device_bytes": 573003258,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35508682752,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "int4",
+      "artifact_bytes": 447305376,
+      "load_seconds": 0.38534895796328783,
+      "cold_seconds": 2.4715703330002725,
+      "cold_rtf": 0.008238567776667574,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.5632683750009164,
+      "warm_p95_seconds": 2.6046762079931796,
+      "warm_p95_rtf": 0.008682254026643932,
+      "warm_median_rtf": 0.00854422791666972,
+      "warm_median_audio_seconds_per_second": 117.03807643625797,
+      "peak_rss_bytes": 626196480,
+      "peak_device_bytes": 963827698,
+      "peak_active_device_bytes": 447174138,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35840311296,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-large-v2",
+      "artifact_bytes": 3083149424,
+      "load_seconds": 0.8047129170154221,
+      "cold_seconds": 14.870397957973182,
+      "cold_rtf": 0.04956799319324394,
+      "warm_runs": 5,
+      "warm_median_seconds": 14.287361250026152,
+      "warm_p95_seconds": 14.674947416002396,
+      "warm_p95_rtf": 0.04891649138667466,
+      "warm_median_rtf": 0.047624537500087175,
+      "warm_median_audio_seconds_per_second": 20.997579241544752,
+      "peak_rss_bytes": 3732652032,
+      "peak_device_bytes": 4020119810,
+      "peak_active_device_bytes": 3087107006,
+      "peak_cache_device_bytes": 1631485560,
+      "minimum_available_memory_bytes": 31568838656,
+      "swap_used_start_bytes": 7780368384,
+      "swap_used_end_bytes": 7780368384,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-large-v3",
+      "artifact_bytes": 3083520416,
+      "load_seconds": 0.8148136250092648,
+      "cold_seconds": 17.928285792004317,
+      "cold_rtf": 0.05976095264001439,
+      "warm_runs": 5,
+      "warm_median_seconds": 18.214497999986634,
+      "warm_p95_seconds": 18.324602540989872,
+      "warm_p95_rtf": 0.06108200846996624,
+      "warm_median_rtf": 0.06071499333328878,
+      "warm_median_audio_seconds_per_second": 16.47039627445237,
+      "peak_rss_bytes": 3764944896,
+      "peak_device_bytes": 4033505330,
+      "peak_active_device_bytes": 3087532782,
+      "peak_cache_device_bytes": 1790178624,
+      "minimum_available_memory_bytes": 30791221248,
+      "swap_used_start_bytes": 7620984832,
+      "swap_used_end_bytes": 7620984832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "whisper-turbo",
+      "artifact_bytes": 1613977612,
+      "load_seconds": 0.257799957995303,
+      "cold_seconds": 6.326738625008147,
+      "cold_rtf": 0.021089128750027157,
+      "warm_runs": 5,
+      "warm_median_seconds": 6.722243374970276,
+      "warm_p95_seconds": 6.83618441701401,
+      "warm_p95_rtf": 0.0227872813900467,
+      "warm_median_rtf": 0.022407477916567588,
+      "warm_median_audio_seconds_per_second": 44.62795874321145,
+      "peak_rss_bytes": 1897709568,
+      "peak_device_bytes": 2564280210,
+      "peak_active_device_bytes": 1618307758,
+      "peak_cache_device_bytes": 1186835826,
+      "minimum_available_memory_bytes": 31596756992,
+      "swap_used_start_bytes": 7486767104,
+      "swap_used_end_bytes": 7226392576,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ru_ru",
+      "implementation": "parakeet-v3",
+      "artifact_bytes": 2508288736,
+      "load_seconds": 0.8413226249977015,
+      "cold_seconds": 3.8858112499583513,
+      "cold_rtf": 0.012952704166527837,
+      "warm_runs": 5,
+      "warm_median_seconds": 3.8429277499672025,
+      "warm_p95_seconds": 3.8649549999972805,
+      "warm_p95_rtf": 0.012883183333324269,
+      "warm_median_rtf": 0.012809759166557341,
+      "warm_median_audio_seconds_per_second": 78.06548015443703,
+      "peak_rss_bytes": 1085194240,
+      "peak_device_bytes": 3240372836,
+      "peak_active_device_bytes": 1295763468,
+      "peak_cache_device_bytes": 4940015360,
+      "minimum_available_memory_bytes": 28756115456,
+      "swap_used_start_bytes": 6643318784,
+      "swap_used_end_bytes": 6643318784,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "original",
+      "artifact_bytes": 2341674025,
+      "load_seconds": 6.3983002079767175,
+      "cold_seconds": 3.100231583986897,
+      "cold_rtf": 0.010334105279956323,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.784841749991756,
+      "warm_p95_seconds": 2.7957020419999026,
+      "warm_p95_rtf": 0.009319006806666343,
+      "warm_median_rtf": 0.009282805833305853,
+      "warm_median_audio_seconds_per_second": 107.72604942485084,
+      "peak_rss_bytes": 5063852032,
+      "peak_device_bytes": 4064346112,
+      "peak_active_device_bytes": null,
+      "peak_cache_device_bytes": null,
+      "minimum_available_memory_bytes": 30025629696,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "fp16",
+      "artifact_bytes": 1170777788,
+      "load_seconds": 0.9314152500010096,
+      "cold_seconds": 1.9991048749652691,
+      "cold_rtf": 0.0066636829165508974,
+      "warm_runs": 5,
+      "warm_median_seconds": 1.9507637500064448,
+      "warm_p95_seconds": 1.9525609579868615,
+      "warm_p95_rtf": 0.006508536526622872,
+      "warm_median_rtf": 0.006502545833354816,
+      "warm_median_audio_seconds_per_second": 153.78592102657683,
+      "peak_rss_bytes": 1348534272,
+      "peak_device_bytes": 1918310386,
+      "peak_active_device_bytes": 1170691578,
+      "peak_cache_device_bytes": 1242102075,
+      "minimum_available_memory_bytes": 34616508416,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int8",
+      "artifact_bytes": 698963894,
+      "load_seconds": 0.5688595419633202,
+      "cold_seconds": 2.054758582962677,
+      "cold_rtf": 0.006849195276542256,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.0455519159440883,
+      "warm_p95_seconds": 2.0853575420333073,
+      "warm_p95_rtf": 0.0069511918067776905,
+      "warm_median_rtf": 0.006818506386480294,
+      "warm_median_audio_seconds_per_second": 146.65968517427743,
+      "peak_rss_bytes": 866795520,
+      "peak_device_bytes": 1215485938,
+      "peak_active_device_bytes": 698832378,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35632431104,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int6",
+      "artifact_bytes": 573134636,
+      "load_seconds": 0.4828781670075841,
+      "cold_seconds": 2.3043738330015913,
+      "cold_rtf": 0.007681246110005304,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.258892208978068,
+      "warm_p95_seconds": 2.283639250032138,
+      "warm_p95_rtf": 0.007612130833440461,
+      "warm_median_rtf": 0.00752964069659356,
+      "warm_median_audio_seconds_per_second": 132.80846195654516,
+      "peak_rss_bytes": 751665152,
+      "peak_device_bytes": 1089656818,
+      "peak_active_device_bytes": 573003258,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35524853760,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "int4",
+      "artifact_bytes": 447305376,
+      "load_seconds": 0.3730252920067869,
+      "cold_seconds": 2.570113791967742,
+      "cold_rtf": 0.008567045973225808,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.613426707976032,
+      "warm_p95_seconds": 2.6379123750375584,
+      "warm_p95_rtf": 0.008793041250125195,
+      "warm_median_rtf": 0.008711422359920108,
+      "warm_median_audio_seconds_per_second": 114.79181684507041,
+      "peak_rss_bytes": 613449728,
+      "peak_device_bytes": 963827698,
+      "peak_active_device_bytes": 447174138,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35840311296,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-large-v2",
+      "artifact_bytes": 3083149424,
+      "load_seconds": 0.4694327920442447,
+      "cold_seconds": 17.89966250001453,
+      "cold_rtf": 0.059665541666715095,
+      "warm_runs": 5,
+      "warm_median_seconds": 18.326312625024002,
+      "warm_p95_seconds": 18.35063587501645,
+      "warm_p95_rtf": 0.061168786250054834,
+      "warm_median_rtf": 0.06108770875008001,
+      "warm_median_audio_seconds_per_second": 16.369905181599897,
+      "peak_rss_bytes": 3739303936,
+      "peak_device_bytes": 4020119810,
+      "peak_active_device_bytes": 3087107006,
+      "peak_cache_device_bytes": 1927231824,
+      "minimum_available_memory_bytes": 30837997568,
+      "swap_used_start_bytes": 7780368384,
+      "swap_used_end_bytes": 7637762048,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-large-v3",
+      "artifact_bytes": 3083520416,
+      "load_seconds": 0.47177954198559746,
+      "cold_seconds": 17.57486491696909,
+      "cold_rtf": 0.05858288305656364,
+      "warm_runs": 5,
+      "warm_median_seconds": 18.04416799999308,
+      "warm_p95_seconds": 18.25259054196067,
+      "warm_p95_rtf": 0.06084196847320224,
+      "warm_median_rtf": 0.06014722666664359,
+      "warm_median_audio_seconds_per_second": 16.625870475164888,
+      "peak_rss_bytes": 3730866176,
+      "peak_device_bytes": 4033505330,
+      "peak_active_device_bytes": 3087532782,
+      "peak_cache_device_bytes": 1940190528,
+      "minimum_available_memory_bytes": 30677319680,
+      "swap_used_start_bytes": 7620984832,
+      "swap_used_end_bytes": 7612596224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "kk_kz",
+      "implementation": "whisper-turbo",
+      "artifact_bytes": 1613977612,
+      "load_seconds": 0.05528150004101917,
+      "cold_seconds": 6.932268459000625,
+      "cold_rtf": 0.023107561530002083,
+      "warm_runs": 5,
+      "warm_median_seconds": 8.510606500029098,
+      "warm_p95_seconds": 8.819934833969455,
+      "warm_p95_rtf": 0.029399782779898184,
+      "warm_median_rtf": 0.028368688333430328,
+      "warm_median_audio_seconds_per_second": 35.25013170318405,
+      "peak_rss_bytes": 1896235008,
+      "peak_device_bytes": 2564280210,
+      "peak_active_device_bytes": 1618307758,
+      "peak_cache_device_bytes": 1270564250,
+      "minimum_available_memory_bytes": 30687543296,
+      "swap_used_start_bytes": 7226392576,
+      "swap_used_end_bytes": 7192772608,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "original",
+      "artifact_bytes": 2341674025,
+      "load_seconds": 6.407726417004596,
+      "cold_seconds": 3.2165324589586817,
+      "cold_rtf": 0.010721774863195605,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.787282374978531,
+      "warm_p95_seconds": 2.8821329590282403,
+      "warm_p95_rtf": 0.009607109863427468,
+      "warm_median_rtf": 0.009290941249928438,
+      "warm_median_audio_seconds_per_second": 107.63172138320242,
+      "peak_rss_bytes": 5060952064,
+      "peak_device_bytes": 4064346112,
+      "peak_active_device_bytes": null,
+      "peak_cache_device_bytes": null,
+      "minimum_available_memory_bytes": 29715922944,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "fp16",
+      "artifact_bytes": 1170777788,
+      "load_seconds": 0.92856429197127,
+      "cold_seconds": 2.0055270419688895,
+      "cold_rtf": 0.006685090139896299,
+      "warm_runs": 5,
+      "warm_median_seconds": 1.959404082968831,
+      "warm_p95_seconds": 1.9754420419922099,
+      "warm_p95_rtf": 0.0065848068066407,
+      "warm_median_rtf": 0.006531346943229437,
+      "warm_median_audio_seconds_per_second": 153.10777527086137,
+      "peak_rss_bytes": 1340162048,
+      "peak_device_bytes": 1918310386,
+      "peak_active_device_bytes": 1170691578,
+      "peak_cache_device_bytes": 1242102075,
+      "minimum_available_memory_bytes": 34569814016,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int8",
+      "artifact_bytes": 698963894,
+      "load_seconds": 0.5682559169945307,
+      "cold_seconds": 2.0711087089730427,
+      "cold_rtf": 0.006903695696576809,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.0624423749977723,
+      "warm_p95_seconds": 2.080156291020103,
+      "warm_p95_rtf": 0.006933854303400343,
+      "warm_median_rtf": 0.006874807916659241,
+      "warm_median_audio_seconds_per_second": 145.4586094800947,
+      "peak_rss_bytes": 868122624,
+      "peak_device_bytes": 1215485938,
+      "peak_active_device_bytes": 698832378,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35358785536,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int6",
+      "artifact_bytes": 573134636,
+      "load_seconds": 0.4690074589452706,
+      "cold_seconds": 2.1964329589973204,
+      "cold_rtf": 0.007321443196657735,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.3317227920051664,
+      "warm_p95_seconds": 2.4216504999785684,
+      "warm_p95_rtf": 0.008072168333261895,
+      "warm_median_rtf": 0.0077724093066838884,
+      "warm_median_audio_seconds_per_second": 128.6602339817654,
+      "peak_rss_bytes": 754614272,
+      "peak_device_bytes": 1089656818,
+      "peak_active_device_bytes": 573003258,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35745005568,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "int4",
+      "artifact_bytes": 447305376,
+      "load_seconds": 0.3751184170250781,
+      "cold_seconds": 2.642267334042117,
+      "cold_rtf": 0.00880755778014039,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.602912375004962,
+      "warm_p95_seconds": 2.8348811250180006,
+      "warm_p95_rtf": 0.009449603750060003,
+      "warm_median_rtf": 0.008676374583349874,
+      "warm_median_audio_seconds_per_second": 115.25551258690685,
+      "peak_rss_bytes": 626737152,
+      "peak_device_bytes": 963827698,
+      "peak_active_device_bytes": 447174138,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35565764608,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-large-v2",
+      "artifact_bytes": 3083149424,
+      "load_seconds": 0.47138050000648946,
+      "cold_seconds": 20.99550287501188,
+      "cold_rtf": 0.06998500958337293,
+      "warm_runs": 5,
+      "warm_median_seconds": 21.50622362497961,
+      "warm_p95_seconds": 21.698407833988313,
+      "warm_p95_rtf": 0.07232802611329438,
+      "warm_median_rtf": 0.07168741208326537,
+      "warm_median_audio_seconds_per_second": 13.949450411719338,
+      "peak_rss_bytes": 3737993216,
+      "peak_device_bytes": 4019694190,
+      "peak_active_device_bytes": 3087107006,
+      "peak_cache_device_bytes": 2484376564,
+      "minimum_available_memory_bytes": 30229413888,
+      "swap_used_start_bytes": 7637762048,
+      "swap_used_end_bytes": 7637762048,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-large-v3",
+      "artifact_bytes": 3083520416,
+      "load_seconds": 0.4693248749827035,
+      "cold_seconds": 21.12011487496784,
+      "cold_rtf": 0.07040038291655946,
+      "warm_runs": 5,
+      "warm_median_seconds": 23.355782666010782,
+      "warm_p95_seconds": 23.716710459033493,
+      "warm_p95_rtf": 0.07905570153011164,
+      "warm_median_rtf": 0.0778526088867026,
+      "warm_median_audio_seconds_per_second": 12.844784706640732,
+      "peak_rss_bytes": 3744595968,
+      "peak_device_bytes": 4033079714,
+      "peak_active_device_bytes": 3087532782,
+      "peak_cache_device_bytes": 2497384744,
+      "minimum_available_memory_bytes": 29757538304,
+      "swap_used_start_bytes": 7612596224,
+      "swap_used_end_bytes": 7587430400,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "ky_kg",
+      "implementation": "whisper-turbo",
+      "artifact_bytes": 1613977612,
+      "load_seconds": 0.06204495800193399,
+      "cold_seconds": 9.63517129200045,
+      "cold_rtf": 0.0321172376400015,
+      "warm_runs": 5,
+      "warm_median_seconds": 9.71454116597306,
+      "warm_p95_seconds": 10.003851166984532,
+      "warm_p95_rtf": 0.03334617055661511,
+      "warm_median_rtf": 0.03238180388657687,
+      "warm_median_audio_seconds_per_second": 30.88154086482276,
+      "peak_rss_bytes": 1901182976,
+      "peak_device_bytes": 2563854706,
+      "peak_active_device_bytes": 1618307758,
+      "peak_cache_device_bytes": 1355136370,
+      "minimum_available_memory_bytes": 30844780544,
+      "swap_used_start_bytes": 7192772608,
+      "swap_used_end_bytes": 7192772608,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "original",
+      "artifact_bytes": 2341674025,
+      "load_seconds": 6.38072687498061,
+      "cold_seconds": 3.076834375038743,
+      "cold_rtf": 0.010256114583462476,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.7603503750287928,
+      "warm_p95_seconds": 2.788692958012689,
+      "warm_p95_rtf": 0.009295643193375629,
+      "warm_median_rtf": 0.009201167916762643,
+      "warm_median_audio_seconds_per_second": 108.68185528689297,
+      "peak_rss_bytes": 5061591040,
+      "peak_device_bytes": 4064329728,
+      "peak_active_device_bytes": null,
+      "peak_cache_device_bytes": null,
+      "minimum_available_memory_bytes": 30088708096,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "fp16",
+      "artifact_bytes": 1170777788,
+      "load_seconds": 0.9257840419886634,
+      "cold_seconds": 2.003788332978729,
+      "cold_rtf": 0.006679294443262431,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.005854375020135,
+      "warm_p95_seconds": 2.017601333966013,
+      "warm_p95_rtf": 0.00672533777988671,
+      "warm_median_rtf": 0.006686181250067117,
+      "warm_median_audio_seconds_per_second": 149.56220338626952,
+      "peak_rss_bytes": 1337999360,
+      "peak_device_bytes": 1918310386,
+      "peak_active_device_bytes": 1170691578,
+      "peak_cache_device_bytes": 1242102075,
+      "minimum_available_memory_bytes": 34574680064,
+      "swap_used_start_bytes": 7850360832,
+      "swap_used_end_bytes": 7850360832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int8",
+      "artifact_bytes": 698963894,
+      "load_seconds": 0.5715308340149932,
+      "cold_seconds": 2.081632166984491,
+      "cold_rtf": 0.006938773889948304,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.076117707998492,
+      "warm_p95_seconds": 2.1281695410143584,
+      "warm_p95_rtf": 0.007093898470047861,
+      "warm_median_rtf": 0.006920392359994973,
+      "warm_median_audio_seconds_per_second": 144.50047742679237,
+      "peak_rss_bytes": 875757568,
+      "peak_device_bytes": 1215485938,
+      "peak_active_device_bytes": 698832378,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35360899072,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int6",
+      "artifact_bytes": 573134636,
+      "load_seconds": 0.4715959170134738,
+      "cold_seconds": 2.3035853329929523,
+      "cold_rtf": 0.007678617776643175,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.492029833025299,
+      "warm_p95_seconds": 2.677826291997917,
+      "warm_p95_rtf": 0.008926087639993056,
+      "warm_median_rtf": 0.00830676611008433,
+      "warm_median_audio_seconds_per_second": 120.38379156793762,
+      "peak_rss_bytes": 752975872,
+      "peak_device_bytes": 1089656818,
+      "peak_active_device_bytes": 573003258,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35704160256,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7841972224,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "int4",
+      "artifact_bytes": 447305376,
+      "load_seconds": 0.3717792499810457,
+      "cold_seconds": 2.710479083005339,
+      "cold_rtf": 0.009034930276684464,
+      "warm_runs": 5,
+      "warm_median_seconds": 2.647375207976438,
+      "warm_p95_seconds": 2.8589964589918964,
+      "warm_p95_rtf": 0.009529988196639654,
+      "warm_median_rtf": 0.008824584026588127,
+      "warm_median_audio_seconds_per_second": 113.31978901068187,
+      "peak_rss_bytes": 626835456,
+      "peak_device_bytes": 963827698,
+      "peak_active_device_bytes": 447174138,
+      "peak_cache_device_bytes": 826145099,
+      "minimum_available_memory_bytes": 35573694464,
+      "swap_used_start_bytes": 7841972224,
+      "swap_used_end_bytes": 7780368384,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-large-v2",
+      "artifact_bytes": 3083149424,
+      "load_seconds": 0.4649688749923371,
+      "cold_seconds": 14.58112683397485,
+      "cold_rtf": 0.0486037561132495,
+      "warm_runs": 5,
+      "warm_median_seconds": 14.931752540986054,
+      "warm_p95_seconds": 15.053885499946773,
+      "warm_p95_rtf": 0.05017961833315591,
+      "warm_median_rtf": 0.049772508469953514,
+      "warm_median_audio_seconds_per_second": 20.091412523515395,
+      "peak_rss_bytes": 3723247616,
+      "peak_device_bytes": 4020119810,
+      "peak_active_device_bytes": 3087107006,
+      "peak_cache_device_bytes": 1927280976,
+      "minimum_available_memory_bytes": 30737186816,
+      "swap_used_start_bytes": 7637762048,
+      "swap_used_end_bytes": 7620984832,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-large-v3",
+      "artifact_bytes": 3083520416,
+      "load_seconds": 0.4710871669813059,
+      "cold_seconds": 13.291735334030818,
+      "cold_rtf": 0.04430578444676939,
+      "warm_runs": 5,
+      "warm_median_seconds": 13.86130295804469,
+      "warm_p95_seconds": 13.927179749996867,
+      "warm_p95_rtf": 0.04642393249998956,
+      "warm_median_rtf": 0.046204343193482295,
+      "warm_median_audio_seconds_per_second": 21.642987019909906,
+      "peak_rss_bytes": 3735207936,
+      "peak_device_bytes": 4033505330,
+      "peak_active_device_bytes": 3087532782,
+      "peak_cache_device_bytes": 1838152112,
+      "minimum_available_memory_bytes": 29149282304,
+      "swap_used_start_bytes": 7587430400,
+      "swap_used_end_bytes": 7486767104,
+      "swap_delta_bytes": 0
+    },
+    {
+      "language": "uz_uz",
+      "implementation": "whisper-turbo",
+      "artifact_bytes": 1613977612,
+      "load_seconds": 0.06292058300459757,
+      "cold_seconds": 8.34181254095165,
+      "cold_rtf": 0.027806041803172168,
+      "warm_runs": 5,
+      "warm_median_seconds": 8.21365887497086,
+      "warm_p95_seconds": 8.611535042000469,
+      "warm_p95_rtf": 0.028705116806668228,
+      "warm_median_rtf": 0.027378862916569536,
+      "warm_median_audio_seconds_per_second": 36.52452634893049,
+      "peak_rss_bytes": 1902149632,
+      "peak_device_bytes": 2564280210,
+      "peak_active_device_bytes": 1618307758,
+      "peak_cache_device_bytes": 1321349290,
+      "minimum_available_memory_bytes": 30873862144,
+      "swap_used_start_bytes": 7192772608,
+      "swap_used_end_bytes": 7192772608,
+      "swap_delta_bytes": 0
+    }
+  ],
+  "performance_comparisons": [
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "warm_speedup": 7.016117236927446,
+      "peak_rss_reduction": 0.7649842202060372,
+      "weights_reduction": 0.7732954852725944
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "warm_speedup": 8.944622533391378,
+      "peak_rss_reduction": 0.7670000087034474,
+      "weights_reduction": 0.7733227610969708
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "warm_speedup": 3.301102757086369,
+      "peak_rss_reduction": 0.5377416319165652,
+      "weights_reduction": 0.5669308614920242
+    },
+    {
+      "language": "ru_ru",
+      "candidate": "int8",
+      "baseline": "parakeet-v3",
+      "warm_speedup": 1.88715264876237,
+      "peak_rss_reduction": 0.19163584207745155,
+      "weights_reduction": 0.7213383435614169
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "warm_speedup": 8.959104133304686,
+      "peak_rss_reduction": 0.7681933496619623,
+      "weights_reduction": 0.7732954852725944
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "warm_speedup": 8.821173327035854,
+      "peak_rss_reduction": 0.767669093687696,
+      "weights_reduction": 0.7733227610969708
+    },
+    {
+      "language": "kk_kz",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "warm_speedup": 4.160542899788089,
+      "peak_rss_reduction": 0.5428860260763628,
+      "weights_reduction": 0.5669308614920242
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "warm_speedup": 10.42755127885832,
+      "peak_rss_reduction": 0.767757035972106,
+      "weights_reduction": 0.7732954852725944
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "warm_speedup": 11.324332233057426,
+      "peak_rss_reduction": 0.7681665441562533,
+      "weights_reduction": 0.7733227610969708
+    },
+    {
+      "language": "ky_kg",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "warm_speedup": 4.710212165798597,
+      "peak_rss_reduction": 0.5433776575116986,
+      "weights_reduction": 0.5669308614920242
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v2",
+      "warm_speedup": 7.19215123663735,
+      "peak_rss_reduction": 0.764786643725605,
+      "weights_reduction": 0.7732954852725944
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-large-v3",
+      "warm_speedup": 6.676549650649557,
+      "peak_rss_reduction": 0.7655398084911329,
+      "weights_reduction": 0.7733227610969708
+    },
+    {
+      "language": "uz_uz",
+      "candidate": "int8",
+      "baseline": "whisper-turbo",
+      "warm_speedup": 3.9562587628469994,
+      "peak_rss_reduction": 0.5395958586711227,
+      "weights_reduction": 0.5669308614920242
+    }
+  ],
+  "performance_run_order": [
+    {
+      "implementation": "original",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "original",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "original",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "original",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "fp16",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "fp16",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "fp16",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "fp16",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "int8",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "int8",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "int8",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "int8",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "int6",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "int6",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "int6",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "int6",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "int4",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "int4",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "int4",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "int4",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "whisper-large-v2",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "whisper-large-v3",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "whisper-turbo",
+      "language": "ru_ru"
+    },
+    {
+      "implementation": "whisper-turbo",
+      "language": "kk_kz"
+    },
+    {
+      "implementation": "whisper-turbo",
+      "language": "ky_kg"
+    },
+    {
+      "implementation": "whisper-turbo",
+      "language": "uz_uz"
+    },
+    {
+      "implementation": "parakeet-v3",
+      "language": "ru_ru"
+    }
+  ],
+  "model_selection": {
+    "pareto": {
+      "definition": "Non-dominated MLX candidates by equal-weight macro WER across ru_ru/kk_kz/ky_kg/uz_uz, Russian 5-minute warm median, peak RSS, and model weight bytes; Original is a reference baseline, English is an appendix, and models missing a core language are ineligible.",
+      "implementations": [
+        "fp16",
+        "int8",
+        "int6",
+        "int4"
+      ]
+    },
+    "leaders": {
+      "ru_wer_percent": [
+        "original",
+        "fp16"
+      ],
+      "kk_wer_percent": [
+        "original"
+      ],
+      "ky_wer_percent": [
+        "original"
+      ],
+      "uz_wer_percent": [
+        "original",
+        "int6"
+      ],
+      "en_wer_percent": [
+        "whisper-large-v3"
+      ],
+      "five_minute_wav_seconds": [
+        "fp16"
+      ],
+      "peak_rss_bytes": [
+        "int4"
+      ],
+      "model_size_bytes": [
+        "int4"
+      ]
+    },
+    "rows": [
+      {
+        "implementation": "original",
+        "label": "Original GigaAM PyTorch/MPS",
+        "wer_percent": {
+          "ru_ru": 2.99548974555357,
+          "kk_kz": 4.324930939226519,
+          "ky_kg": 5.552664833122724,
+          "uz_uz": 7.310154793743415,
+          "en_us": 9.716882209017825
+        },
+        "core_macro_wer_percent": 5.045810077911557,
+        "five_minute_wav_seconds": 2.7887154999771155,
+        "peak_rss_bytes": 5059133440,
+        "model_size_bytes": 2341674025
+      },
+      {
+        "implementation": "fp16",
+        "label": "GigaAM MLX FP16",
+        "wer_percent": {
+          "ru_ru": 2.99548974555357,
+          "kk_kz": 4.342196132596685,
+          "ky_kg": 5.560098119378577,
+          "uz_uz": 7.36688548504741,
+          "en_us": 9.725620412443202
+        },
+        "core_macro_wer_percent": 5.06616737064406,
+        "five_minute_wav_seconds": 1.9517246669856831,
+        "peak_rss_bytes": 1350025216,
+        "model_size_bytes": 1170777788
+      },
+      {
+        "implementation": "int8",
+        "label": "GigaAM MLX INT8 g64",
+        "wer_percent": {
+          "ru_ru": 3.0125095736533063,
+          "kk_kz": 4.350828729281768,
+          "ky_kg": 5.582397978146139,
+          "uz_uz": 7.334467947159413,
+          "en_us": 9.734358615868576
+        },
+        "core_macro_wer_percent": 5.070051057060157,
+        "five_minute_wav_seconds": 2.0363629579660483,
+        "peak_rss_bytes": 877232128,
+        "model_size_bytes": 698963894
+      },
+      {
+        "implementation": "int6",
+        "label": "GigaAM MLX INT6 g64",
+        "wer_percent": {
+          "ru_ru": 3.0125095736533063,
+          "kk_kz": 4.3853591160221,
+          "ky_kg": 5.567531405634431,
+          "uz_uz": 7.310154793743415,
+          "en_us": 9.847955260398463
+        },
+        "core_macro_wer_percent": 5.0688887222633126,
+        "five_minute_wav_seconds": 2.1953914999612607,
+        "peak_rss_bytes": 755023872,
+        "model_size_bytes": 573134636
+      },
+      {
+        "implementation": "int4",
+        "label": "GigaAM MLX INT4 g64",
+        "wer_percent": {
+          "ru_ru": 3.2337673389498764,
+          "kk_kz": 4.376726519337017,
+          "ky_kg": 5.768230134542481,
+          "uz_uz": 7.4965556365994,
+          "en_us": 9.882908074099966
+        },
+        "core_macro_wer_percent": 5.218819907357194,
+        "five_minute_wav_seconds": 2.5632683750009164,
+        "peak_rss_bytes": 626196480,
+        "model_size_bytes": 447305376
+      },
+      {
+        "implementation": "whisper-large-v2",
+        "label": "MLX Whisper large-v2",
+        "wer_percent": {
+          "ru_ru": 3.854991064590248,
+          "kk_kz": 39.4682320441989,
+          "ky_kg": 92.58158031665799,
+          "uz_uz": 95.55069292487237,
+          "en_us": 4.194337644180356
+        },
+        "core_macro_wer_percent": 57.86387408757987,
+        "five_minute_wav_seconds": 14.287361250026152,
+        "peak_rss_bytes": 3732652032,
+        "model_size_bytes": 3083149424
+      },
+      {
+        "implementation": "whisper-large-v3",
+        "label": "MLX Whisper large-v3",
+        "wer_percent": {
+          "ru_ru": 3.123138456301591,
+          "kk_kz": 32.777969613259664,
+          "ky_kg": 86.67955102951015,
+          "uz_uz": 87.98119782802496,
+          "en_us": 4.098217406501224
+        },
+        "core_macro_wer_percent": 52.64046423177409,
+        "five_minute_wav_seconds": 18.214497999986634,
+        "peak_rss_bytes": 3764944896,
+        "model_size_bytes": 3083520416
+      },
+      {
+        "implementation": "whisper-turbo",
+        "label": "MLX Whisper large-v3-turbo",
+        "wer_percent": {
+          "ru_ru": 3.5486341587949966,
+          "kk_kz": 20.467886740331494,
+          "ky_kg": 84.07790083996134,
+          "uz_uz": 108.93103168814329,
+          "en_us": 4.578818594896889
+        },
+        "core_macro_wer_percent": 54.25636335680778,
+        "five_minute_wav_seconds": 6.722243374970276,
+        "peak_rss_bytes": 1897709568,
+        "model_size_bytes": 1613977612
+      },
+      {
+        "implementation": "parakeet-v3",
+        "label": "MLX Parakeet TDT 0.6B v3",
+        "wer_percent": {
+          "ru_ru": 4.961279891073101,
+          "kk_kz": null,
+          "ky_kg": null,
+          "uz_uz": null,
+          "en_us": 4.928346731911919
+        },
+        "core_macro_wer_percent": null,
+        "five_minute_wav_seconds": 3.8429277499672025,
+        "peak_rss_bytes": 1085194240,
+        "model_size_bytes": 2508288736
+      }
+    ]
+  },
+  "support": {
+    "parakeet-v3": {
+      "quality_languages": [
+        "ru_ru",
+        "en_us"
+      ],
+      "performance_languages": [
+        "ru_ru"
+      ],
+      "unsupported_languages": [
+        "kk_kz",
+        "ky_kg",
+        "uz_uz"
+      ]
+    }
+  },
+  "command_templates": {
+    "mlx_quality": "python tools/run_multilingual_quality.py --implementation mlx --model MODEL --manifest MANIFEST --language LANGUAGE --batch-size 8 --output REPORT",
+    "pytorch_quality": "python tools/run_multilingual_quality.py --implementation pytorch --model MODEL --manifest MANIFEST --language LANGUAGE --batch-size 8 --source-device mps --output REPORT",
+    "whisper_quality": "python tools/run_multilingual_whisper_matrix.py --model MODEL --model-name NAME --slice LANGUAGE=WHISPER_LANGUAGE=MANIFEST --output-dir REPORT_DIR",
+    "mlx_performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark AUDIO --model MODEL --compile --warm-runs 5 --output REPORT",
+    "pytorch_performance": "python -m gigaam_multilingual_mlx.dev_cli benchmark-pytorch AUDIO --source MODEL --source-device mps --warm-runs 5 --output REPORT",
+    "whisper_performance": "python tools/run_whisper_benchmark.py AUDIO --model MODEL --language LANGUAGE_OR_AUTO --warm-runs 5 --output REPORT",
+    "parakeet_quality": "python tools/run_parakeet_quality.py --model MODEL --model-revision REVISION --manifest MANIFEST --language LANGUAGE --output REPORT",
+    "parakeet_performance": "python tools/run_parakeet_benchmark.py AUDIO --model MODEL --model-revision REVISION --warm-runs 5 --output REPORT"
+  },
+  "limitations": [
+    "Only Apple M4 Pro / 48 GB was benchmarked.",
+    "Whisper has no Kyrgyz language token; Kyrgyz uses automatic language detection.",
+    "Whisper large-v2 is included as a practical production reference, but this suite uses the common short-form benchmark decoding contract.",
+    "English is an appendix language and not part of the core GigaAM claim.",
+    "Parakeet TDT 0.6B v3 officially supports Russian and English, but not Kazakh, Kyrgyz, or Uzbek; unsupported cells are N/A and were not run.",
+    "All results use deterministic public FLEURS selections, not a universal ASR leaderboard."
+  ]
+}

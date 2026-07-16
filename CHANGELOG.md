@@ -3,6 +3,22 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2026-07-16
+
+### Added
+
+- Reproducible multilingual FLEURS benchmark for Russian, Kazakh, Kyrgyz,
+  Uzbek, and English with MLX Whisper and MLX Parakeet references.
+- English and Russian documentation with a Pareto model-selection matrix,
+  confidence intervals, speed, peak memory, and weight-size comparisons.
+
+### Changed
+
+- PyPI metadata now surfaces offline ASR, Apple Silicon, supported languages,
+  transcription, and quantization keywords.
+- INT8 is presented as the recommended quality, speed, memory, and size balance.
+- Developer report commands now create missing output directories.
+
 ## [0.1.1] - 2026-07-16
 
 ### Added
@@ -25,5 +41,6 @@ and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Local model, explicit Hub repository/revision, and offline workflows.
 - Developer-only conversion, parity, quality, and benchmark interfaces.
 
+[0.1.2]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.2
 [0.1.1]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.1
 [0.1.0]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.0
