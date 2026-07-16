@@ -3,6 +3,13 @@
 The `v0.1.0` benchmark uses public, pinned inputs only. It never uses private/user
 audio or a private pseudo-reference.
 
+The newer [`public-asr-multilingual-v1`](multilingual-v1/README.md) suite adds
+same-audio quality, speed, disk, and memory comparisons with MLX Whisper large-v2,
+large-v3, Turbo, and MLX Parakeet TDT 0.6B v3. Parakeet is reported only for its
+supported Russian and English slices; Kazakh, Kyrgyz, and Uzbek are `N/A`. Its
+compact results are in
+[`docs/benchmark-multilingual-v1.md`](../docs/benchmark-multilingual-v1.md).
+
 ## Quality suite: `public-asr-quality-v1`
 
 | Dataset | Config/split | Revision | License recorded by source card |

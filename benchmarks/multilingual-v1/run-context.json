@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "run_date": "2026-07-16",
+  "machine": {
+    "display_name": "14-inch MacBook Pro",
+    "model_identifier": "Mac16,8",
+    "chip": "Apple M4 Pro",
+    "unified_memory_gb": 48,
+    "macos": "15.7.7 (24G720)"
+  },
+  "conditions": {
+    "power_source": "AC Power",
+    "battery_at_performance_start": "100%, charged",
+    "battery_at_performance_end": "100%, charged",
+    "thermal_warning": "none recorded",
+    "performance_warning": "none recorded",
+    "benchmark_concurrency": "one heavy benchmark process at a time",
+    "desktop_state": "ordinary desktop applications remained open; no parallel ML benchmark process",
+    "swap_note": "macOS retained swap from earlier quality runs; every isolated report records start, end, and delta, and no positive delta was observed"
+  },
+  "protocol": {
+    "quality_process_policy": "one implementation/language slice at a time; Whisper reused a loaded model across language slices",
+    "performance_process_policy": "one new process per implementation/language; load, one cold run, five warm runs, then exit",
+    "performance_order": "Original, FP16, INT8, INT6, INT4, Whisper large-v2, Whisper large-v3, Whisper large-v3-turbo; Russian, Kazakh, Kyrgyz, Uzbek within each implementation; Parakeet TDT 0.6B v3 Russian appended as a separately approved extension"
+  }
+}

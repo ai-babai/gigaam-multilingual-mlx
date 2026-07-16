@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "dataset_id": "google/fleurs",
+      "config": "ru_ru",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 620,
+      "audio_seconds": 6975.06,
+      "manifest": "google--fleurs-ru_ru.jsonl",
+      "manifest_sha256": "bfbb55979187721bb1e955f14a48ceed38c2e8fc6d3cfd6aa631b035bf58aed2",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "kk_kz",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 689,
+      "audio_seconds": 10655.94,
+      "manifest": "google--fleurs-kk_kz.jsonl",
+      "manifest_sha256": "fba3bb40395af7277f5585fab5709acfc9611005a139348fa1d9f57293f8895d",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "ky_kg",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 792,
+      "audio_seconds": 9046.14,
+      "manifest": "google--fleurs-ky_kg.jsonl",
+      "manifest_sha256": "667abd9fdb0e9553a1529236453dd386860f5e87b01efd09ddfb8442e92e6279",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "uz_uz",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 698,
+      "audio_seconds": 8076.84,
+      "manifest": "google--fleurs-uz_uz.jsonl",
+      "manifest_sha256": "e36b97707f3590b518309c62c37702402c54c5d9016b1e49e990c5cd91e63fad",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    },
+    {
+      "dataset_id": "google/fleurs",
+      "config": "en_us",
+      "split": "test",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "items": 525,
+      "audio_seconds": 4995.56,
+      "manifest": "google--fleurs-en_us.jsonl",
+      "manifest_sha256": "de4c6fce6dfc9f31e106340930b5ff2957e6f51356bbe74b5bd851c1ddd424e5",
+      "license": [
+        "CC BY 4.0"
+      ],
+      "selection_rule": "test split; exclude audio >30s and references containing digits"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 # GigaAM-Multilingual MLX
 
-An independent native [MLX](https://github.com/ml-explore/mlx) port of
+**English** · [Русский](README.ru.md)
+
+Offline speech-to-text for Russian, Kazakh, Kyrgyz, and Uzbek on Apple Silicon.
+This is an independent native [MLX](https://github.com/ml-explore/mlx) port of
 [GigaAM](https://github.com/salute-developers/GigaAM) for Apple Silicon, based on the
 official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multilingual).
 This project is not an official release of the GigaAM authors.
@@ -34,11 +37,79 @@ The canonical `gigaam-multilingual-mlx transcribe ...` command and the explicit
 The first run downloads the default INT8 model at the immutable `v0.1.0` release
 tag. Later runs reuse the cached files.
 
+## Why GigaAM STT?
+
+- Strong measured transcription quality for the four core GigaAM languages,
+  especially Kazakh, Kyrgyz, and Uzbek.
+- Native MLX inference on Apple Silicon without PyTorch, ONNX Runtime, Core ML,
+  or a cloud ASR service.
+- A 699 MB default model with substantially lower process memory than the tested
+  MLX Whisper checkpoints.
+- Fully local operation after the first model download, with a simple
+  `gigaam-stt AUDIO` CLI and TXT, JSON, SRT, or VTT output.
+
+### Model selection: GigaAM MLX, MLX Whisper, and MLX Parakeet
+
+Corpus WER uses pinned FLEURS test selections. Resource columns use one Russian
+five-minute WAV on a 14-inch MacBook Pro with Apple M4 Pro and 48 GB unified
+memory. `5-min WAV` is the median of five runs after model load; Peak RAM is
+whole-process peak RSS; model size is the weight file on disk.
+
+`✓` column leader · `◇` Pareto frontier · `★` recommended default. Lower is
+better. English is an appendix. Parakeet does not officially support Kazakh,
+Kyrgyz, or Uzbek, so those cells are `N/A`.
+
+#### ◇ Pareto frontier — start here
+
+The frontier is computed among MLX candidates using equal-weight macro WER over
+Russian, Kazakh, Kyrgyz, and Uzbek plus 5-min WAV time, Peak RAM, and model size.
+Original GigaAM is a PyTorch/MPS reference baseline; English is excluded as an
+appendix; models missing a core language are ineligible.
+
+| Pareto MLX variant | Core macro WER | 5-min WAV | Peak RAM | Model size | Best fit |
+|---|---:|---:|---:|---:|---|
+| ◇ GigaAM MLX FP16 | 5.066% | **✓ 1.952s** | 1.350 GB | 1.171 GB | fastest; reference-port fidelity |
+| **◇ ★ GigaAM MLX INT8** | **5.070%** | **2.036s** | **0.877 GB** | **0.699 GB** | **recommended quality / speed / footprint balance** |
+| ◇ GigaAM MLX INT6 | 5.069% | 2.195s | 0.755 GB | 0.573 GB | smaller footprint with near-INT8 quality |
+| ◇ GigaAM MLX INT4 | 5.219% | 2.563s | **✓ 0.626 GB** | **✓ 0.447 GB** | minimum model size and Peak RAM |
+
+#### All compared models
+
+| Model / variant | RU WER | KZ WER | KY WER | UZ WER | EN WER | 5-min WAV | Peak RAM | Model size |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Original GigaAM PyTorch/MPS | **✓ 2.995%** | **✓ 4.325%** | **✓ 5.553%** | **✓ 7.310%** | 9.717% | 2.789s | 5.059 GB | 2.342 GB |
+| ◇ GigaAM MLX FP16 | **✓ 2.995%** | 4.342% | 5.560% | 7.367% | 9.726% | **✓ 1.952s** | 1.350 GB | 1.171 GB |
+| **◇ ★ GigaAM MLX INT8** | 3.013% | 4.351% | 5.582% | 7.334% | 9.734% | 2.036s | 0.877 GB | 0.699 GB |
+| ◇ GigaAM MLX INT6 | 3.013% | 4.385% | 5.568% | **✓ 7.310%** | 9.848% | 2.195s | 0.755 GB | 0.573 GB |
+| ◇ GigaAM MLX INT4 | 3.234% | 4.377% | 5.768% | 7.497% | 9.883% | 2.563s | **✓ 0.626 GB** | **✓ 0.447 GB** |
+| MLX Whisper large-v2 | 3.855% | 39.468% | 92.582% | 95.551% | 4.194% | 14.287s | 3.733 GB | 3.083 GB |
+| MLX Whisper large-v3 | 3.123% | 32.778% | 86.680% | 87.981% | **✓ 4.098%** | 18.214s | 3.765 GB | 3.084 GB |
+| MLX Whisper large-v3-turbo | 3.549% | 20.468% | 84.078% | 108.931% | 4.579% | 6.722s | 1.898 GB | 1.614 GB |
+| MLX Parakeet TDT 0.6B v3 | 4.961% | N/A | N/A | N/A | 4.928% | 3.843s | 1.085 GB | 2.508 GB |
+
+For Kazakh, Kyrgyz, and Uzbek, paired bootstrap 95% confidence intervals support
+lower WER for INT8 than all three Whisper references. Russian is close: the
+measured INT8 advantage is supported against large-v2 and v3 Turbo, but not against
+large-v3. INT8 also has 39.3% lower Russian WER than Parakeet in this suite
+(paired-bootstrap 95% CI: 32.7–45.6%). Whisper and Parakeet are better on the
+English appendix; Whisper supports many more languages and speech-to-English
+translation. Parakeet does not officially support Kazakh, Kyrgyz, or Uzbek, so
+those cells are `N/A` rather than out-of-scope measurements.
+
+INT8 was 3.30× faster than Whisper v3 Turbo, 7.02× faster than large-v2, and
+8.94× faster than large-v3 on this input, with 54–77% lower peak RSS. It was also
+1.89× faster than Parakeet, with 19.2% lower peak RSS and 72.1% smaller weights. See the
+[multilingual benchmark](https://github.com/ai-babai/gigaam-multilingual-mlx/blob/main/docs/benchmark-multilingual-v1.md) for all languages,
+FP16/INT6/INT4, CER, p95, confidence intervals, hashes, and limitations.
+
 ## Model variants
+
+> **Recommended default: INT8 g64.** It preserves near-FP16 quality while giving
+> the strongest measured balance of download size, process memory, and speed.
 
 | Variant | Role | Model size | Hugging Face repository |
 |---|---|---:|---|
-| INT8 g64 | default, lowest-risk quantized | 699 MB | [`ai-babai/gigaam-multilingual-mlx-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
+| **INT8 g64** | **recommended default, lowest-risk quantized** | **699 MB** | **[`ai-babai/gigaam-multilingual-mlx-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64)** |
 | FP16 | reference MLX artifact | 1.17 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
 | INT6 g64 | compact balanced | 573 MB | [`ai-babai/gigaam-multilingual-mlx-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
 | INT4 g64 | smallest opt-in | 447 MB | [`ai-babai/gigaam-multilingual-mlx-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
@@ -135,7 +206,7 @@ The accepted model artifacts use source revision
 greedy-token agreement on the frozen parity set. Every production artifact reloads
 strictly with its recorded SHA-256.
 
-The public quality suite uses pinned subsets of FLEURS `ru_ru`, Russian
+The `v0.1.0` release quality suite uses pinned subsets of FLEURS `ru_ru`, Russian
 LibriSpeech, and SOVA RuDevices with one normalization rule and identical greedy
 decoding. The release report publishes Original PyTorch/MPS, FP16, INT8, INT6,
 and INT4 side by side, including WER/CER, load/cold/warm timing, RTF, peak resident

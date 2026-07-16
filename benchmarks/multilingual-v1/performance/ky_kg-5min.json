@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "benchmark_suite_version": "public-asr-multilingual-v1",
+  "language": "ky_kg",
+  "selection_algorithm": "audio-sha256-prefix-with-250ms-silence-v1",
+  "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "source_manifest_sha256": "41f58918887060d36598ecb9b0cf0369df61df674faad86d84eacd408475ae61",
+  "duration_seconds": 300,
+  "sample_rate": 16000,
+  "channels": 1,
+  "sample_width_bytes": 2,
+  "silence_seconds_between_items": 0.25,
+  "wav_file": "ky_kg-5min.wav",
+  "wav_sha256": "ec0c4b6f5cad1d1c52acdafbe62ff321b500753c0d08270c6b49b6909515eea0",
+  "items": [
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00081",
+      "audio_sha256": "0005b9f35a4355c11e7f0dd8cdb8c2702d9c6aa2a8345a3b67fd164dd15b40b0",
+      "used_samples": 167040
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00325",
+      "audio_sha256": "003bf2f7b41847c151446867b8daaea6ef14b1c62cba90181b051d9d3b89eb76",
+      "used_samples": 150720
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00250",
+      "audio_sha256": "00d5f701151f0fa28eeebf559e1de49592fdf644d37cbc3336a559980051686c",
+      "used_samples": 237120
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00294",
+      "audio_sha256": "010d452828e19c677783bd70f39e6d580241917db6d2eff354eec30d7f04333b",
+      "used_samples": 124800
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00257",
+      "audio_sha256": "0140d7bc7ade05133b06adad6d6bf10ad4ab33668aa3b48a6aae525e74a70703",
+      "used_samples": 96960
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00477",
+      "audio_sha256": "0145673fe9a1683321a1a605f6d035a319da52de7943230f89ebafffc85742d5",
+      "used_samples": 151680
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00914",
+      "audio_sha256": "01b32459eb940617933f4cf56713cbac0ab0b21e05a56800f5d8dda7780bc2c5",
+      "used_samples": 272640
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00640",
+      "audio_sha256": "01e13a03155cfdde1a91002a69874a2bb738e08a54ca12a8d33765ccd2c21e3a",
+      "used_samples": 146880
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00639",
+      "audio_sha256": "021a08bbadd89847dc16a1abf88b9c4c470256bcae988a07ed033727042fe8ef",
+      "used_samples": 154560
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00068",
+      "audio_sha256": "021b1fe04eea9897c6d2ffdb56ea9e55f3b2b0c26b93026aaff4bd88171959ee",
+      "used_samples": 137280
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00845",
+      "audio_sha256": "0261b8b145bd1747b667143f7c9990bc3d40bbb4d818783271c26438d729a391",
+      "used_samples": 250560
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00926",
+      "audio_sha256": "026288aff9d1fc15fdef7bc610dddb550ada6c3fdf84fb0fbee8d89a6a7e094e",
+      "used_samples": 176640
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00560",
+      "audio_sha256": "029951d51cc6549f73a16fdb55dfd686cc98adfc396a4b74389a3ed414c6f917",
+      "used_samples": 203520
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00779",
+      "audio_sha256": "02e4b198810088d5bbdc98a5713406dfa56d1ab3755e969c85e0e43f81fa2e4d",
+      "used_samples": 149760
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00764",
+      "audio_sha256": "03285fbfae39c6e5c0dbafcf749155669c24c8866c947f921725afd61bbe87aa",
+      "used_samples": 183360
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00190",
+      "audio_sha256": "036d251e829f6e33a015c262833f4d3dfc6d3ebe758c7c330410a63d5e88992d",
+      "used_samples": 240000
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00361",
+      "audio_sha256": "03759302ea1607673bb70a6ef86f0e94164c87842e5b76a4e1ad7cf6169b1159",
+      "used_samples": 171840
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00404",
+      "audio_sha256": "03e3c9fe7b2986f1c4abc5f3ef4e855bd750e398e047c2ad2d5db21dc7ccfcbf",
+      "used_samples": 155520
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00637",
+      "audio_sha256": "03e8075a2ce225db7212d9653126e65f71421f63db77f7c0fe5cf4ef9b743d11",
+      "used_samples": 160320
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00782",
+      "audio_sha256": "0413125cd45e4846cf4e62e1b150a541300fdbff36444af5711f2e0d5aad8a9c",
+      "used_samples": 144000
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00014",
+      "audio_sha256": "04221ffa1668c7e9a69853864ceebae29d646821032bdf0632a5dd25c4c95a55",
+      "used_samples": 216000
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00468",
+      "audio_sha256": "045d34b81158bffa3f48921811e2f45e9f88b5b4f763bad5f9eede674cb4cf1e",
+      "used_samples": 172800
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00865",
+      "audio_sha256": "04b77fb57fc8e0782268003c9b03085f5a7e174eef57b0a0ddbbe5ebe2bc7242",
+      "used_samples": 181440
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00734",
+      "audio_sha256": "054e04e0e23797a4ba8fe259b8cffed798c8474db1b548daedc8e35a06b26dd6",
+      "used_samples": 207360
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00617",
+      "audio_sha256": "0554d66c9c61898bbbde0db45e6b29556a70f4132703f8a0e303dd3434b9fd29",
+      "used_samples": 156480
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00200",
+      "audio_sha256": "05689bd79953119ab3d4009f5bd1b7ac547efd2b9e214918ce5e247ef9595c63",
+      "used_samples": 154560
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00089",
+      "audio_sha256": "05be68cf2b45e759752b9f115bcef71d1b11c039ae7f30c23739b3ce9aec3de7",
+      "used_samples": 86400
+    },
+    {
+      "sample_id": "fleurs-ky_kg-test-row-00071",
+      "audio_sha256": "05f865916e453064a3046d8d89df0306e2ab81c0958853edca910a0843f5c6a8",
+      "used_samples": 41760
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "benchmark_suite_version": "public-asr-multilingual-v1",
+  "language": "kk_kz",
+  "selection_algorithm": "audio-sha256-prefix-with-250ms-silence-v1",
+  "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "source_manifest_sha256": "bd7432b8d94394e8967c44700d12fc77c636460ee77d27d083dd4443810f2a8e",
+  "duration_seconds": 300,
+  "sample_rate": 16000,
+  "channels": 1,
+  "sample_width_bytes": 2,
+  "silence_seconds_between_items": 0.25,
+  "wav_file": "kk_kz-5min.wav",
+  "wav_sha256": "a0f95f43bd8454d8f23eeb135bbc4ae4720555293b5f8699688ba8faf9cbeaec",
+  "items": [
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00517",
+      "audio_sha256": "0022a9efeef4dfcc715808180ab3d410443f7df394b2f25762086bfe67061e99",
+      "used_samples": 216960
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00031",
+      "audio_sha256": "00900dc429cc80d46a17893b794327157bcd6b8a79253ee70fbe175a7e23276c",
+      "used_samples": 174720
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00754",
+      "audio_sha256": "00adce14c3adb271b285e66b3f0eab9bdb482c66c4e21aee2b8f448c3a669e5b",
+      "used_samples": 378240
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00768",
+      "audio_sha256": "00da1496a9db9f37fa66d52df93bc6e345138d1d468be7fd0c30114939842016",
+      "used_samples": 264000
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00388",
+      "audio_sha256": "00fea7597df5c2da22e5366d0047b9beae3ad73bd72cf2a5f60575fa42278202",
+      "used_samples": 186240
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00339",
+      "audio_sha256": "01149b89338d279604333ffa056e3909b05a03d9b7ad9a14c336e57f2ab8a98e",
+      "used_samples": 237120
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00159",
+      "audio_sha256": "012f62ecfafaa783877320d432e92c2b9b93379bd0a0fe088ce05dd0a7330518",
+      "used_samples": 246720
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00834",
+      "audio_sha256": "01af9c749fef5a3c60bb812407f766cd93409bfd27a0ce711e686f7a71f0f7e4",
+      "used_samples": 222720
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00740",
+      "audio_sha256": "01c7d92600e1e4ececba37e58e6f1765f24a30e6574b1709095a4b67abb41ce9",
+      "used_samples": 179520
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00257",
+      "audio_sha256": "0247a31927b81c14f124ea8f1ba64033414b8c6c6afa4328f166971eb8b4f938",
+      "used_samples": 258240
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00210",
+      "audio_sha256": "033d2ce80abe0e696063798d861940adfea3f0be707f1c126c184e114627ff4f",
+      "used_samples": 138240
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00695",
+      "audio_sha256": "03a65982ab7e4f989f435ad42555ba703d0d90995377607c1474a3f2858f463c",
+      "used_samples": 162240
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00062",
+      "audio_sha256": "043880ee1517b3991653fc25e0561414d8d5b9b8ce7e43239fbd1d505031eb5b",
+      "used_samples": 243840
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00023",
+      "audio_sha256": "047889b5997042af325c537366729e353031dfb9fb0af3ecbd95b8ec77c5b0f5",
+      "used_samples": 130560
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00117",
+      "audio_sha256": "04829db5edac2bb428fca37a834376cd34defc232cf5e314358eaf9b3921e2ae",
+      "used_samples": 235200
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00412",
+      "audio_sha256": "055c12d310a1b9310dcefd6456d2cb7a857a355a9c944fb37ef85f68d17acc9e",
+      "used_samples": 289920
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00324",
+      "audio_sha256": "0566075a9895975e84b95939093aff6c4a0f3d05db1500dde5e03f31cc613518",
+      "used_samples": 279360
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00793",
+      "audio_sha256": "05b4e36a08fa573462e5d563924ed9dfe5a0eccb9c0dd7a12449e9e7437e24d8",
+      "used_samples": 405120
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00573",
+      "audio_sha256": "063decc84a1f342a6d7299a34656ef00f60b564af26603723a1881d3f709550a",
+      "used_samples": 243840
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00303",
+      "audio_sha256": "06488d5f0455e71e5f2d883764a5ce7cdf3bf2ebdd05ab4fbe92cfa0f214d6f3",
+      "used_samples": 207360
+    },
+    {
+      "sample_id": "fleurs-kk_kz-test-row-00119",
+      "audio_sha256": "066339c511f9e34e35a78edd3d0cb91b46cbb6f860faf7f4a5f4f5bfc258dfca",
+      "used_samples": 19840
+    }
+  ]
+}
