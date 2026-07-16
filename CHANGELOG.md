@@ -3,6 +3,17 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2026-07-17
+
+### Changed
+
+- Replaced the benchmark decision matrix with a sharper, mobile-friendly
+  version that marks both column leaders and runners-up.
+- Made the near-lossless quality relationship explicit: Original GigaAM ranks
+  first at 5.046% core macro WER and MLX FP16 second at 5.066% (+0.020 pp).
+- Standardized user-facing artifact measurements on `Model size` and added
+  measured peak RAM to the model-variant summaries.
+
 ## [0.1.3] - 2026-07-16
 
 ### Changed
@@ -50,6 +61,7 @@ and releases use [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Local model, explicit Hub repository/revision, and offline workflows.
 - Developer-only conversion, parity, quality, and benchmark interfaces.
 
+[0.1.4]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.4
 [0.1.3]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.3
 [0.1.2]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.2
 [0.1.1]: https://github.com/ai-babai/gigaam-multilingual-mlx/releases/tag/v0.1.1

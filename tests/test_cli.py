@@ -27,7 +27,7 @@ def test_public_cli_exposes_only_user_commands() -> None:
 
 
 def test_version_is_release_version() -> None:
-    assert __version__ == "0.1.3"
+    assert __version__ == "0.1.4"
 
 
 def test_short_cli_accepts_audio_without_transcribe_subcommand() -> None:

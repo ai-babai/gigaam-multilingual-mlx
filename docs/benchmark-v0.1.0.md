@@ -4,7 +4,7 @@ Apple M4 Pro (48 GB), macOS 15.7.7, public-only suites, greedy CTC, 20-second ch
 
 ## Artifacts
 
-| Implementation | Repository / revision | Weights | Model artifact | SHA-256 |
+| Implementation | Repository / revision | Model size | Model artifact | SHA-256 |
 |---|---|---:|---:|---|
 | Original PyTorch/MPS | `ai-sage/GigaAM-Multilingual@3905cd51c3ed4e88c8edf33f3302969ba480a327` | 2.342 GB | 2.342 GB | `c3fabefb50b41f08f4d7ad44e02c26c37d242882704cdcca2ebd98e45eff73d1` |
 | MLX FP16 | `ai-babai/gigaam-multilingual-mlx@v0.1.0` | 1.171 GB | 1.171 GB | `d6d7bcef5e1b77700c84d669635a88021724fd3b1ae0c408890bccdf3c8d2269` |

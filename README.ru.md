@@ -16,8 +16,9 @@
 ![Сравнение GigaAM MLX, Whisper и Parakeet](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png)
 
 На графике сравниваются WER, время расшифровки пятиминутного WAV, пиковая память
-процесса и размер весов. `✓` обозначает лидера столбца, `◇` — Pareto frontier,
-`★` — рекомендуемый вариант. Во всех колонках меньше — лучше.
+процесса и размер модели. Залитые плашки обозначают лидеров столбцов, контурные —
+вторые места, `◇` — Pareto frontier, `★` — рекомендуемый вариант. Во всех
+колонках меньше — лучше.
 
 ## Быстрый старт
 
@@ -58,12 +59,12 @@ Turbo, в 7.02× быстрее Whisper large-v2 и в 8.94× быстрее Whi
 
 ## Варианты модели
 
-| Вариант | Когда выбирать | Веса | Hugging Face |
-|---|---|---:|---|
-| **INT8 g64** | **баланс по умолчанию** | **699 MB** | [`ai-babai/...-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
-| FP16 | максимальная измеренная скорость, эталонный порт | 1.17 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
-| INT6 g64 | компактнее, качество около INT8 | 573 MB | [`ai-babai/...-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
-| INT4 g64 | минимум памяти и места | 447 MB | [`ai-babai/...-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
+| Вариант | Когда выбирать | Размер модели | Peak RAM | Hugging Face |
+|---|---|---:|---:|---|
+| **INT8 g64** | **баланс по умолчанию** | **699 MB** | **0.88 GB** | [`ai-babai/...-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
+| FP16 | максимальная измеренная скорость, эталонный порт | 1.17 GB | 1.35 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
+| INT6 g64 | компактнее, качество около INT8 | 573 MB | 0.76 GB | [`ai-babai/...-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
+| INT4 g64 | минимум памяти и места | 447 MB | 0.63 GB | [`ai-babai/...-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
 
 Выбрать вариант можно без знания имени репозитория:
 
@@ -149,7 +150,7 @@ python -m gigaam_multilingual_mlx.dev_cli --help
 Core macro WER усредняет русский, казахский, кыргызский и узбекский; меньше —
 лучше.
 
-| Вариант GigaAM MLX | Core macro WER | 5-min WAV | Peak RAM | Веса |
+| Вариант GigaAM MLX | Core macro WER | 5-min WAV | Peak RAM | Размер модели |
 |---|---:|---:|---:|---:|
 | FP16 | 5.066% | **1.952s** | 1.350 GB | 1.171 GB |
 | **INT8 g64 (по умолчанию)** | **5.070%** | **2.036s** | **0.877 GB** | **0.699 GB** |

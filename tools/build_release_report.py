@@ -400,7 +400,7 @@ def markdown(report: dict[str, Any]) -> str:
         "",
         "## Artifacts",
         "",
-        "| Implementation | Repository / revision | Weights | Model artifact | SHA-256 |",
+        "| Implementation | Repository / revision | Model size | Model artifact | SHA-256 |",
         "|---|---|---:|---:|---|",
     ]
     for item in report["artifacts"]:

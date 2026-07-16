@@ -501,7 +501,8 @@ def _model_selection_lines(result: dict[str, Any]) -> list[str]:
         "",
         "## Model selection matrix",
         "",
-        "`✓` column leader · `◇` Pareto frontier · `★` recommended default. Lower is better.",
+        "Filled pill: column leader · outlined pill: column runner-up · `◇` Pareto frontier ·",
+        "`★` recommended default. Lower is better.",
         "English is an appendix. `5-min WAV` is the Russian five-minute warm median after",
         "model load; Peak RAM is whole-process peak RSS; model size is the weight file.",
         "",
@@ -694,7 +695,7 @@ def markdown(result: dict[str, Any]) -> str:
             "",
             "## GigaAM INT8 resource advantage over MLX baselines",
             "",
-            "| Language | Baseline | Warm speedup | Peak RSS reduction | Weight reduction |",
+            "| Language | Baseline | Warm speedup | Peak RSS reduction | Model size reduction |",
             "|---|---|---:|---:|---:|",
         ]
     )
@@ -712,7 +713,7 @@ def markdown(result: dict[str, Any]) -> str:
             [
                 f"### {LANGUAGES[language]}",
                 "",
-                "| Implementation | Weights | Load | 5-min warm | Peak RSS |",
+                "| Implementation | Model size | Load | 5-min warm | Peak RSS |",
                 "|---|---:|---:|---:|---:|",
             ]
         )

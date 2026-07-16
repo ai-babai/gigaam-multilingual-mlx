@@ -15,8 +15,8 @@ official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multi
 ![GigaAM MLX, Whisper, and Parakeet model decision matrix](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png)
 
 The chart compares WER, five-minute transcription time, peak process memory, and
-model size. `✓` marks a column leader, `◇` the Pareto frontier, and `★` the
-recommended default. Lower is better.
+model size. Filled pills mark column leaders, outlined pills mark runners-up,
+`◇` marks the Pareto frontier, and `★` the recommended default. Lower is better.
 
 ## Quick start
 
@@ -57,12 +57,12 @@ commands, hashes, and limitations.
 
 ## Model variants
 
-| Variant | Recommended use | Weights | Hugging Face |
-|---|---|---:|---|
-| **INT8 g64** | **default balance** | **699 MB** | [`ai-babai/...-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
-| FP16 | fastest measured, reference port | 1.17 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
-| INT6 g64 | smaller, near-INT8 quality | 573 MB | [`ai-babai/...-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
-| INT4 g64 | minimum memory and disk | 447 MB | [`ai-babai/...-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
+| Variant | Recommended use | Model size | Peak RAM | Hugging Face |
+|---|---|---:|---:|---|
+| **INT8 g64** | **default balance** | **699 MB** | **0.88 GB** | [`ai-babai/...-int8-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int8-g64) |
+| FP16 | fastest measured, reference port | 1.17 GB | 1.35 GB | [`ai-babai/gigaam-multilingual-mlx`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx) |
+| INT6 g64 | smaller, near-INT8 quality | 573 MB | 0.76 GB | [`ai-babai/...-int6-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int6-g64) |
+| INT4 g64 | minimum memory and disk | 447 MB | 0.63 GB | [`ai-babai/...-int4-g64`](https://huggingface.co/ai-babai/gigaam-multilingual-mlx-int4-g64) |
 
 Choose a variant without remembering its repository name:
 
@@ -147,7 +147,7 @@ for the results.
 This compact table is the text alternative to the GigaAM part of the image.
 Core macro WER averages Russian, Kazakh, Kyrgyz, and Uzbek; lower is better.
 
-| GigaAM MLX variant | Core macro WER | 5-min WAV | Peak RAM | Weights |
+| GigaAM MLX variant | Core macro WER | 5-min WAV | Peak RAM | Model size |
 |---|---:|---:|---:|---:|
 | FP16 | 5.066% | **1.952s** | 1.350 GB | 1.171 GB |
 | **INT8 g64 (default)** | **5.070%** | **2.036s** | **0.877 GB** | **0.699 GB** |

@@ -25,7 +25,8 @@ Public benchmark. Lower is better for WER, time, memory, and size.
 
 ## Model selection matrix
 
-`✓` column leader · `◇` Pareto frontier · `★` recommended default. Lower is better.
+Filled pill: column leader · outlined pill: column runner-up · `◇` Pareto frontier ·
+`★` recommended default. Lower is better.
 English is an appendix. `5-min WAV` is the Russian five-minute warm median after
 model load; Peak RAM is whole-process peak RSS; model size is the weight file.
 
@@ -133,7 +134,7 @@ Positive relative error reduction means lower WER for GigaAM INT8.
 
 ## GigaAM INT8 resource advantage over MLX baselines
 
-| Language | Baseline | Warm speedup | Peak RSS reduction | Weight reduction |
+| Language | Baseline | Warm speedup | Peak RSS reduction | Model size reduction |
 |---|---|---:|---:|---:|
 | Russian | MLX Whisper large-v2 | 7.02× | 76.5% | 77.3% |
 | Russian | MLX Whisper large-v3 | 8.94× | 76.7% | 77.3% |
@@ -153,7 +154,7 @@ Positive relative error reduction means lower WER for GigaAM INT8.
 
 ### Russian
 
-| Implementation | Weights | Load | 5-min warm | Peak RSS |
+| Implementation | Model size | Load | 5-min warm | Peak RSS |
 |---|---:|---:|---:|---:|
 | Original GigaAM PyTorch/MPS | 2.342 GB | 6.442s | 2.789s | 5.059 GB |
 | GigaAM MLX FP16 | 1.171 GB | 0.890s | 1.952s | 1.350 GB |
@@ -167,7 +168,7 @@ Positive relative error reduction means lower WER for GigaAM INT8.
 
 ### Kazakh
 
-| Implementation | Weights | Load | 5-min warm | Peak RSS |
+| Implementation | Model size | Load | 5-min warm | Peak RSS |
 |---|---:|---:|---:|---:|
 | Original GigaAM PyTorch/MPS | 2.342 GB | 6.398s | 2.785s | 5.064 GB |
 | GigaAM MLX FP16 | 1.171 GB | 0.931s | 1.951s | 1.349 GB |
@@ -181,7 +182,7 @@ Positive relative error reduction means lower WER for GigaAM INT8.
 
 ### Kyrgyz
 
-| Implementation | Weights | Load | 5-min warm | Peak RSS |
+| Implementation | Model size | Load | 5-min warm | Peak RSS |
 |---|---:|---:|---:|---:|
 | Original GigaAM PyTorch/MPS | 2.342 GB | 6.408s | 2.787s | 5.061 GB |
 | GigaAM MLX FP16 | 1.171 GB | 0.929s | 1.959s | 1.340 GB |
@@ -195,7 +196,7 @@ Positive relative error reduction means lower WER for GigaAM INT8.
 
 ### Uzbek
 
-| Implementation | Weights | Load | 5-min warm | Peak RSS |
+| Implementation | Model size | Load | 5-min warm | Peak RSS |
 |---|---:|---:|---:|---:|
 | Original GigaAM PyTorch/MPS | 2.342 GB | 6.381s | 2.760s | 5.062 GB |
 | GigaAM MLX FP16 | 1.171 GB | 0.926s | 2.006s | 1.338 GB |
