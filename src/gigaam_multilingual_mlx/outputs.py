@@ -16,7 +16,7 @@ def _timestamp(seconds: float, *, separator: str) -> str:
     return f"{hours:02d}:{minutes:02d}:{whole_seconds:02d}{separator}{milliseconds:03d}"
 
 
-def _cues(words: Iterable[dict[str, Any]], duration: float) -> list[dict[str, Any]]:
+def transcription_cues(words: Iterable[dict[str, Any]], duration: float) -> list[dict[str, Any]]:
     rows = list(words)
     if not rows:
         return []
@@ -54,7 +54,7 @@ def render_transcription(result: dict[str, Any], output_format: str) -> str:
     if output_format == "json":
         return json.dumps(result, ensure_ascii=False, indent=2) + "\n"
 
-    cues = _cues(result.get("words", []), float(result["duration_seconds"]))
+    cues = transcription_cues(result.get("words", []), float(result["duration_seconds"]))
     if not cues and str(result.get("text", "")).strip():
         cues = [
             {

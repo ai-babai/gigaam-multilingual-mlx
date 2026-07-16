@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Popkov
     given-names: Maksim
-version: 0.1.5
+version: 0.2.0
 date-released: 2026-07-17
 license: MIT
 repository-code: "https://github.com/ai-babai/gigaam-multilingual-mlx"

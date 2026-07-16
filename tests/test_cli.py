@@ -19,7 +19,7 @@ from gigaam_multilingual_mlx.cli import (
 def test_public_cli_exposes_only_user_commands() -> None:
     parser = _parser()
     subparsers = next(action for action in parser._actions if action.dest == "command")
-    assert set(subparsers.choices) == {"transcribe", "models"}
+    assert set(subparsers.choices) == {"transcribe", "models", "serve"}
     help_text = parser.format_help()
     assert "film" not in help_text.lower()
     assert "convert" not in help_text.lower()
@@ -27,7 +27,7 @@ def test_public_cli_exposes_only_user_commands() -> None:
 
 
 def test_version_is_release_version() -> None:
-    assert __version__ == "0.1.5"
+    assert __version__ == "0.2.0"
 
 
 def test_short_cli_accepts_audio_without_transcribe_subcommand() -> None:
@@ -42,6 +42,20 @@ def test_short_cli_accepts_audio_without_transcribe_subcommand() -> None:
 def test_short_cli_keeps_explicit_commands() -> None:
     assert _short_cli_args(["models", "--json"]) == ["models", "--json"]
     assert _short_cli_args(["transcribe", "meeting.wav"]) == ["transcribe", "meeting.wav"]
+    assert _short_cli_args(["serve", "--variant", "int8"]) == [
+        "serve",
+        "--variant",
+        "int8",
+    ]
+
+
+def test_server_defaults_are_local_and_bounded() -> None:
+    args = _parser("gigaam-stt").parse_args(["serve"])
+    assert args.host == "127.0.0.1"
+    assert args.port == 8000
+    assert args.variant == "int8"
+    assert args.max_upload_mb == 1024
+    assert args.max_queue == 8
 
 
 def test_models_json_marks_int8_default() -> None:

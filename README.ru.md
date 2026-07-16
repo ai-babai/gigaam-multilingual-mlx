@@ -41,6 +41,53 @@ uv add gigaam-multilingual-mlx
 Также поддерживаются `pip install gigaam-multilingual-mlx` и полная команда
 `gigaam-multilingual-mlx transcribe ...`.
 
+## Локальный OpenAI-совместимый сервер
+
+Установите web-зависимости и запустите INT8-модель по умолчанию:
+
+```bash
+uv tool install 'gigaam-multilingual-mlx[server]'
+gigaam-stt serve
+```
+
+Существующие OpenAI-клиенты могут использовать локальный `base_url`.
+Имя `whisper-1` — только alias для совместимости; `/v1/models` показывает
+реальный артефакт GigaAM MLX. Для Python-примера отдельно установите клиент:
+`uv add openai`.
+
+```python
+from pathlib import Path
+from openai import OpenAI
+
+client = OpenAI(base_url="http://127.0.0.1:8000/v1", api_key="local")
+with Path("meeting.m4a").open("rb") as audio:
+    result = client.audio.transcriptions.create(model="whisper-1", file=audio)
+print(result.text)
+```
+
+```bash
+curl http://127.0.0.1:8000/v1/audio/transcriptions \
+  -F model=whisper-1 \
+  -F file=@meeting.m4a
+```
+
+| Поддерживается | Не входит в 0.2 |
+|---|---|
+| `json`, `text`, `verbose_json`, `srt`, `vtt` | realtime, SSE, WebSocket |
+| Языковые hints: ru, kk, ky, uz, en | translation, diarization, logprobs |
+| Словесные и сегментные timestamps | prompt conditioning, ненулевая temperature |
+
+По умолчанию сервер слушает только `127.0.0.1:8000`, CORS выключен.
+Для доступа из локальной сети нужен `GIGAAM_STT_API_KEY` или `--api-key-file`;
+`--allow-unauthenticated` следует включать только в доверенной сети. На
+процесс загружается одна модель, а MLX-запросы выполняются
+последовательно через ограниченную очередь.
+
+Типовые ошибки подсказывают действие: при отсутствии web-зависимостей
+установите extra `[server]`; после `401` передайте настроенный bearer token;
+после `429` повторите запрос, когда освободится очередь; при `model_not_found`
+выберите ID из `/v1/models`. Для декодирования аудио также нужен `ffmpeg`.
+
 ## Зачем этот порт?
 
 - Нативный MLX-инференс без PyTorch, ONNX Runtime, Core ML и облачного API.
@@ -122,7 +169,7 @@ text = model.greedy_decode(log_probs, lengths)[0]["text"]
   на 14-дюймовом MacBook Pro с Apple M4 Pro и 48 GB памяти.
 - Intel Mac, Linux, Windows и iOS не поддерживаются.
 - Используется greedy CTC decoding. В релиз не входят diarization, обучение,
-  поток с микрофона и локальный HTTP-сервер.
+  поток с микрофона и realtime HTTP/WebSocket streaming.
 - Качество может снижаться на шуме, дальней речи, перекрывающихся голосах,
   code-switching и доменах, не похожих на публичные тестовые данные.
 

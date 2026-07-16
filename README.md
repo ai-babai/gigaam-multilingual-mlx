@@ -39,6 +39,51 @@ uv add gigaam-multilingual-mlx
 `pip install gigaam-multilingual-mlx` and the long
 `gigaam-multilingual-mlx transcribe ...` command remain supported.
 
+## Local OpenAI-compatible server
+
+Install the optional web dependencies and start the default INT8 model:
+
+```bash
+uv tool install 'gigaam-multilingual-mlx[server]'
+gigaam-stt serve
+```
+
+Existing OpenAI clients can use a local `base_url`. The `whisper-1` model name
+is a compatibility alias; `/v1/models` reports the actual GigaAM MLX artifact.
+The Python example additionally needs the client package: `uv add openai`.
+
+```python
+from pathlib import Path
+from openai import OpenAI
+
+client = OpenAI(base_url="http://127.0.0.1:8000/v1", api_key="local")
+with Path("meeting.m4a").open("rb") as audio:
+    result = client.audio.transcriptions.create(model="whisper-1", file=audio)
+print(result.text)
+```
+
+```bash
+curl http://127.0.0.1:8000/v1/audio/transcriptions \
+  -F model=whisper-1 \
+  -F file=@meeting.m4a
+```
+
+| Supported | Not supported in 0.2 |
+|---|---|
+| `json`, `text`, `verbose_json`, `srt`, `vtt` | realtime, SSE, WebSocket |
+| Russian, Kazakh, Kyrgyz, Uzbek, English hints | translation, diarization, logprobs |
+| word and segment timestamps | prompt conditioning, nonzero temperature |
+
+The server binds to `127.0.0.1:8000` and disables CORS by default. A
+non-loopback bind requires `GIGAAM_STT_API_KEY` or `--api-key-file`; use
+`--allow-unauthenticated` only on a trusted network. One model is loaded per
+process and MLX inference is serialized through a bounded queue.
+
+Common server errors are actionable: install the `[server]` extra if web
+dependencies are missing; send the configured bearer token after `401`; retry
+after `429` when the bounded queue is full; and select the model ID returned by
+`/v1/models` after `model_not_found`. Audio decoding also requires `ffmpeg`.
+
 ## Why this port?
 
 - Native MLX inference without PyTorch, ONNX Runtime, Core ML, or a cloud API.
@@ -120,7 +165,7 @@ Local portable model directories are also supported:
   come from one 14-inch MacBook Pro with Apple M4 Pro and 48 GB memory.
 - Not supported: Intel Mac, Linux, Windows, or iOS.
 - This release uses greedy CTC decoding. It does not provide diarization,
-  training, microphone streaming, or a local HTTP server.
+  training, microphone streaming, or realtime HTTP/WebSocket streaming.
 - Accuracy can degrade with noise, far-field speech, overlapping speakers,
   code-switching, or domains unlike the public evaluation data.
 

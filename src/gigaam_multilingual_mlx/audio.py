@@ -10,6 +10,10 @@ import numpy as np
 SAMPLE_RATE = 16_000
 
 
+class AudioDecodeError(RuntimeError):
+    """The configured decoder could not read the supplied media file."""
+
+
 def load_audio(path: str | Path, sample_rate: int = SAMPLE_RATE) -> np.ndarray:
     path = Path(path).expanduser()
     if not path.is_file():
@@ -41,7 +45,7 @@ def load_audio(path: str | Path, sample_rate: int = SAMPLE_RATE) -> np.ndarray:
     ]
     result = subprocess.run(command, capture_output=True, check=False)
     if result.returncode:
-        raise RuntimeError(result.stderr.decode("utf-8", errors="replace").strip())
+        raise AudioDecodeError(result.stderr.decode("utf-8", errors="replace").strip())
     return np.frombuffer(result.stdout, dtype="<i2").astype(np.float32) / 32768.0
 
 
