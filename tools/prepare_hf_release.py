@@ -165,7 +165,18 @@ def _card(
         if variant == "int8"
         else "Select this variant explicitly with `--variant`."
     )
-    yaml_tags = ["mlx", "apple-silicon", "gigaam", "ctc", "automatic-speech-recognition"]
+    yaml_tags = [
+        "mlx",
+        "apple-silicon",
+        "gigaam",
+        "ctc",
+        "automatic-speech-recognition",
+        "speech-recognition",
+        "transcription",
+        "offline-asr",
+        "speech-to-text",
+        "macos",
+    ]
     if quantization:
         yaml_tags.extend(["quantized", precision])
     lines = [
@@ -187,7 +198,11 @@ def _card(
         "",
         f"# {metadata['title']}",
         "",
-        "An independent Apple MLX port of the official "
+        "Native offline speech recognition and audio transcription for Russian, Kazakh, "
+        "Kyrgyz, and Uzbek on Apple Silicon with MLX. Core speech-to-text languages: "
+        "Russian (русский), Kazakh (қазақша), Kyrgyz (кыргызча), and Uzbek (o‘zbekcha).",
+        "",
+        "This is an independent Apple MLX port of the official "
         f"[GigaAM repository]({UPSTREAM_REPOSITORY}) and the "
         f"[GigaAM-Multilingual source model]({UPSTREAM_MODEL}). It is not an official "
         "GigaChat/GigaAM release.",

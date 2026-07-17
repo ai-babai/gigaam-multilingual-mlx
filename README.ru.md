@@ -2,8 +2,11 @@
 
 [English](README.md) · **Русский**
 
-Быстрое локальное распознавание русской, казахской, кыргызской и узбекской речи
-на Apple Silicon. Это независимый нативный порт
+Быстрое локальное распознавание речи в текст и транскрибация аудио на Mac
+с Apple Silicon — для русского, казахского, кыргызского (киргизского) и узбекского
+языков. GigaAM MLX локально расшифровывает встречи, интервью, лекции, подкасты,
+голосовые сообщения и аудиодорожки видео в TXT, JSON, SRT или VTT. Это
+независимый нативный порт
 [GigaAM](https://github.com/salute-developers/GigaAM) на
 [MLX](https://github.com/ml-explore/mlx), основанный на официальной модели
 [GigaAM-Multilingual](https://huggingface.co/ai-sage/GigaAM-Multilingual).
@@ -12,6 +15,8 @@
 [Модели на Hugging Face](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276) ·
 [Последний релиз](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/latest) ·
 [Полный бенчмарк](docs/benchmark-multilingual-v1.md)
+
+## Качество распознавания по языкам
 
 ![Сравнение GigaAM MLX, Whisper и Parakeet](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png?v=0.1.5)
 

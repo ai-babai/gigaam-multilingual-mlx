@@ -2,15 +2,20 @@
 
 **English** · [Русский](README.ru.md)
 
-Fast, offline speech-to-text for Russian, Kazakh, Kyrgyz, and Uzbek on Apple
-Silicon. This is an independent native [MLX](https://github.com/ml-explore/mlx)
-port of [GigaAM](https://github.com/salute-developers/GigaAM), based on the
-official [GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multilingual).
+Fast, private, offline speech-to-text and audio transcription for Russian,
+Kazakh, Kyrgyz, and Uzbek on Apple Silicon Macs. Transcribe meetings,
+interviews, lectures, podcasts, voice messages, and video locally to TXT, JSON,
+SRT, or VTT. This is an independent native
+[MLX](https://github.com/ml-explore/mlx) port of
+[GigaAM](https://github.com/salute-developers/GigaAM), based on the official
+[GigaAM-Multilingual model](https://huggingface.co/ai-sage/GigaAM-Multilingual).
 
 [PyPI](https://pypi.org/project/gigaam-multilingual-mlx/) ·
 [Hugging Face models](https://huggingface.co/collections/ai-babai/gigaam-multilingual-mlx-6a57ef36e44d1a0c4eb49276) ·
 [Latest release](https://github.com/ai-babai/gigaam-multilingual-mlx/releases/latest) ·
 [Full benchmark](docs/benchmark-multilingual-v1.md)
+
+## Speech recognition quality by language
 
 ![GigaAM MLX, Whisper, and Parakeet model decision matrix](https://raw.githubusercontent.com/ai-babai/gigaam-multilingual-mlx/main/docs/benchmark-multilingual-v1.png?v=0.1.5)
 
